@@ -28,7 +28,7 @@ export default class ArticleCard extends Vue {
     @Prop({ required: true })
     id!: number
 
-    @Prop({ default: 'Untitled Article' })
+    @Prop({ default: 'Sans nom' })
     name!: string
 
     @Prop()

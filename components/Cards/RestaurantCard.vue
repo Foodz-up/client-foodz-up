@@ -30,7 +30,7 @@ export default class RestaurantCard extends Vue {
     @Prop({ required: true })
     id!: number
 
-    @Prop({ default: 'Untitled Shop' })
+    @Prop({ default: 'Sans nom' })
     name!: string
 
     @Prop({ default: 'noshop.jpg' })
