@@ -18,7 +18,7 @@
       </div>
       <div class="flex">
         <p class="text-lg text-gray-500">
-          {{ date }}
+          {{ dateFormat(date) }}
         </p>
         <span class="mx-1 text-lg font-bold text-gray-500">
           •
@@ -67,6 +67,17 @@ export default class ArticleCard extends Vue {
 
     @Prop()
     status!: 'Passée' | 'En cours'
+
+    dateFormat (dateString: number): string {
+      const date = new Date(dateString)
+      const options = {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      }
+      // @ts-ignore
+      return date.toLocaleDateString('fr', options)
+    }
 }
 </script>
 

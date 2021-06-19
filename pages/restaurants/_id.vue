@@ -21,7 +21,7 @@
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 import ListArticles from '~/components/Lists/ListArticles.vue'
-import TimeTable from '~/components/tables/TimeTable.vue'
+import TimeTable from '~/components/Tables/TimeTable.vue'
 
 @Component({
   components: { ListArticles, TimeTable }
@@ -32,7 +32,7 @@ export default class SpecificRestaurant extends Vue {
       img: 'noshop.jpg',
       name: 'Le petit rat porteur',
       note: 4.4,
-      waiting: '10-20min',
+      waiting: '10-20 min',
       timetable: {
         lundi: { mStart: '10h', mEnd: '15h', aStart: '18h', aEnd: '00h' },
         mardi: { mStart: '10h', mEnd: '15h', aStart: '18h', aEnd: '00h' },

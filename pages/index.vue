@@ -23,12 +23,12 @@ import RestaurantCard from '~/components/Cards/RestaurantCard.vue'
 export default class Home extends Vue {
   // TODO: need type
   restaurants: Array<object> = [
-    { id: 1, type: 'Fast food', name: 'Mcdonald', note: 4.5, waiting: '10-20min' },
-    { id: 2, type: 'Fast food', name: 'KFC', note: 4.2, waiting: '10-30min' },
-    { id: 3, type: 'Nourriture de confort', name: 'La Boucherie', note: 4.9, waiting: '30min' },
-    { id: 4, type: 'Pizza', name: 'Le Plaza', note: 4.9, waiting: '30-40min' },
-    { id: 5, type: 'Fast food', name: 'Dominos', note: 4.3, waiting: '10-20min' },
-    { id: 6, type: 'Fast food', name: 'Burger King', note: 4.7, waiting: '20-30min' }
+    { id: 1, type: 'Fast food', name: 'Mcdonald', note: 4.5, waiting: '10-20 min' },
+    { id: 2, type: 'Fast food', name: 'KFC', note: 4.2, waiting: '10-30 min' },
+    { id: 3, type: 'Nourriture de confort', name: 'La Boucherie', note: 4.9, waiting: '30 min' },
+    { id: 4, type: 'Pizza', name: 'Le Plaza', note: 4.9, waiting: '30-40 min' },
+    { id: 5, type: 'Fast food', name: 'Dominos', note: 4.3, waiting: '10-20 min' },
+    { id: 6, type: 'Fast food', name: 'Burger King', note: 4.7, waiting: '20-30 min' }
   ]
 }
 </script>
