@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="mt-4 text-2xl text-center">
+    <h1 class="mt-4 text-4xl text-center">
       Vos commandes
     </h1>
     <hr class="my-4">

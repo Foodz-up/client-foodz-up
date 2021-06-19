@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-for="(commandeArrayByStatus, index) in splitedByStatus" :key="index" class="w-full mx-4">
-      <h2 class="text-2xl font-semibold mt-24 mb-8 text-yellow-pastel">
+      <h2 class="text-3xl font-semibold mt-24 mb-8 text-yellow-pastel">
         {{ commandeArrayByStatus[0].status }}
       </h2>
       <div class="grid gap-7 gap-y-12 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">

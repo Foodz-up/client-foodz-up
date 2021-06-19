@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-for="(articleArrayByType, index) in splitedByType" :key="index" class="w-full">
-      <h2 class="text-2xl font-semibold mt-24 mb-8 text-yellow-pastel">
+      <h2 class="text-3xl font-semibold mt-24 mb-8 text-yellow-pastel">
         {{ articleArrayByType[0].type }}
       </h2>
       <div class="grid gap-7 gap-y-12 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">

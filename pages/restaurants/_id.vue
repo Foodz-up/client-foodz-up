@@ -3,14 +3,16 @@
     <img class="w-full h-56 object-cover" :src="require(`assets/img/${restaurant.img}`)">
     <div class="mx-4">
       <div class="mt-4">
-        <h1 class="text-3xl font-bold">
+        <h1 class="text-4xl font-bold">
           {{ restaurant.name }}
         </h1>
-        <p class="w-full text-primary font-medium">
+        <p class="w-full text-primary text-xl font-medium">
           Temps d'attente estimé : {{ restaurant.waiting }}
         </p>
-        <span class="text-gray-500 font-medium">Note obtenue : {{ restaurant.note }}</span>
+        <span class="text-gray-500 text-xl font-medium">Note obtenue : {{ restaurant.note }}</span>
       </div>
+      <TimeTable :timetable="restaurant.timetable" />
+
       <ListArticles :articles="restaurant.articles" />
     </div>
   </div>
@@ -19,9 +21,10 @@
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 import ListArticles from '~/components/Lists/ListArticles.vue'
+import TimeTable from '~/components/tables/TimeTable.vue'
 
 @Component({
-  components: { ListArticles }
+  components: { ListArticles, TimeTable }
 })
 export default class SpecificRestaurant extends Vue {
     // TODO: need type
@@ -30,14 +33,14 @@ export default class SpecificRestaurant extends Vue {
       name: 'Le petit rat porteur',
       note: 4.4,
       waiting: '10-20min',
-      ouvertures: {
-        lundi: { m_start: '10h', m_end: '15h', a_start: '18h', a_end: '00h' },
-        mardi: { m_start: '10h', m_end: '15h', a_start: '18h', a_end: '00h' },
-        mercredi: { m_start: '10h', m_end: '15h', a_start: '18h', a_end: '00h' },
-        jeudi: { m_start: '10h', m_end: '15h', a_start: '18h', a_end: '00h' },
-        vendredi: { m_start: '10h', m_end: '15h', a_start: '18h', a_end: '00h' },
-        samedi: { m_start: '10h', m_end: '15h', a_start: '18h', a_end: '00h' },
-        dimanche: { m_start: '10h', m_end: '15h', a_start: '18h', a_end: '00h' }
+      timetable: {
+        lundi: { mStart: '10h', mEnd: '15h', aStart: '18h', aEnd: '00h' },
+        mardi: { mStart: '10h', mEnd: '15h', aStart: '18h', aEnd: '00h' },
+        mercredi: { mStart: '10h', mEnd: '15h', aStart: '18h', aEnd: '00h' },
+        jeudi: { mStart: '10h', mEnd: '15h', aStart: '18h', aEnd: '00h' },
+        vendredi: { mStart: '10h', mEnd: '15h', aStart: '18h', aEnd: '00h' },
+        samedi: { mStart: '10h', mEnd: '15h', aStart: '18h', aEnd: '00h' },
+        dimanche: { mStart: '10h', mEnd: '15h', aStart: '18h', aEnd: '00h' }
       },
       articles: [
         { id: 1, type: 'Entrée', name: 'Foie gras maison', description: 'Servi avec sa confiture de figues', price: 5.20 },
