@@ -1,90 +1,38 @@
 <template>
-  <div class="container">
-    <div>
-      <Logo class="mx-auto" />
-      <h1 class="title">
-        livreur-foodz-up
-      </h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub {{ test }}
-        </a>
-      </div>
-      <DsComponentFoodzUpSample />
+  <div>
+    <div class="grid gap-7 sm:grid-cols-2 xl:grid-cols-3 p-4">
+      <RestaurantCard
+        v-for="restaurant in restaurants"
+        :id="restaurant.id"
+        :key="restaurant.id"
+        :name="restaurant.name"
+        :note="restaurant.note"
+        :waiting="restaurant.waiting"
+      />
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-import { Greeter } from 'design-system-foodz-up'
-import { DsComponentFoodzUpSample } from 'ds-component-foodz-up'
+import { Component, Vue } from 'nuxt-property-decorator'
+import RestaurantCard from '~/components/Cards/RestaurantCard.vue'
 
-export default Vue.extend({
-  components: { DsComponentFoodzUpSample },
-  computed: {
-    test () {
-      return Greeter('e')
-    }
-  }
+@Component({
+  components: { RestaurantCard }
 })
+export default class Home extends Vue {
+  // TODO: need type
+  restaurants: Array<object> = [
+    { id: 1, type: 'Fast food', name: 'Mcdonald', note: 4.5, waiting: '10-20min' },
+    { id: 2, type: 'Fast food', name: 'KFC', note: 4.2, waiting: '10-30min' },
+    { id: 3, type: 'Nourriture de confort', name: 'La Boucherie', note: 4.9, waiting: '30min' },
+    { id: 4, type: 'Pizza', name: 'Le Plaza', note: 4.9, waiting: '30-40min' },
+    { id: 5, type: 'Fast food', name: 'Dominos', note: 4.3, waiting: '10-20min' },
+    { id: 6, type: 'Fast food', name: 'Burger King', note: 4.7, waiting: '20-30min' }
+  ]
+}
 </script>
 
 <style>
-/* Sample `apply` at-rules with Tailwind CSS
-.container {
-@apply min-h-screen flex justify-center items-center text-center mx-auto;
-}
-*/
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
 
-.title {
-  font-family:
-    'Quicksand',
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
 </style>

@@ -7,6 +7,7 @@
 <style>
 html {
   font-family:
+  'Montserrat',
     'Source Sans Pro',
     -apple-system,
     BlinkMacSystemFont,
@@ -58,5 +59,17 @@ html {
 .button--grey:hover {
   color: #fff;
   background-color: #35495e;
+}
+
+.container {
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.max-w-300px {
+  max-width: 300px;
 }
 </style>

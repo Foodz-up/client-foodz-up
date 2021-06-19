@@ -4943,6 +4943,13 @@
     "debug" "^3.2.7"
     "pkg-dir" "^2.0.0"
 
+"eslint-plugin-babel@^5.3.1":
+  "integrity" "sha512-VsQEr6NH3dj664+EyxJwO4FCYm/00JhYb3Sk3ft8o+fpKuIfQ9TaW6uVUfvwMXHcf/lsnRIoyFPsLMyiWCSL/g=="
+  "resolved" "https://registry.npmjs.org/eslint-plugin-babel/-/eslint-plugin-babel-5.3.1.tgz"
+  "version" "5.3.1"
+  dependencies:
+    "eslint-rule-composer" "^0.3.0"
+
 "eslint-plugin-es@^3.0.0":
   "integrity" "sha512-GUmAsJaN4Fc7Gbtl8uOBlayo2DqhwWvEzykMHSCZHU3XdJ+NSzzZcVhXh3VxX5icqQ+oQdIEawXX8xkR3mIFmQ=="
   "resolved" "https://registry.npmjs.org/eslint-plugin-es/-/eslint-plugin-es-3.0.1.tgz"
@@ -5039,6 +5046,11 @@
     "semver" "^7.3.2"
     "vue-eslint-parser" "^7.6.0"
 
+"eslint-rule-composer@^0.3.0":
+  "integrity" "sha512-bt+Sh8CtDmn2OajxvNO+BX7Wn4CIWMpTRm3MaiKPCQcnnlm0CS2mhui6QaoeQugs+3Kj2ESKEEGJUdVafwhiCg=="
+  "resolved" "https://registry.npmjs.org/eslint-rule-composer/-/eslint-rule-composer-0.3.0.tgz"
+  "version" "0.3.0"
+
 "eslint-scope@^4.0.3":
   "integrity" "sha512-p7VutNr1O/QrxysMo3E45FjYDTeXBy0iTltPFNSqKAIfjDSXC+4dj+qfyuD8bfAXrW/y6lW3O76VaYNPKfpKrg=="
   "resolved" "https://registry.npmjs.org/eslint-scope/-/eslint-scope-4.0.3.tgz"
@@ -5119,7 +5131,7 @@
     "normalize-path" "^3.0.0"
     "schema-utils" "^3.0.0"
 
-"eslint@^7.22.0":
+"eslint@^7.22.0", "eslint@>=4.0.0":
   "integrity" "sha512-UMfH0VSjP0G4p3EWirscJEQ/cHqnT/iuH6oNZOB94nBjWbMnhGEPxsZm1eyIW0C/9jLI0Fow4W5DXLjEI7mn1g=="
   "resolved" "https://registry.npmjs.org/eslint/-/eslint-7.28.0.tgz"
   "version" "7.28.0"
@@ -8245,6 +8257,16 @@
   "integrity" "sha1-b2gragJ6Tp3fpFZM0lidHU5mnt4="
   "resolved" "https://registry.npmjs.org/num2fraction/-/num2fraction-1.2.2.tgz"
   "version" "1.2.2"
+
+"nuxt-property-decorator@^2.9.1":
+  "integrity" "sha512-dE2GrrGKZMhv0dHAr+Lmj+JOQfjIouINgF58QNRDFNOZXMJrXxKO5zGqvCRwmx3hxqqwht7TXHdz9w1AnvL2IA=="
+  "resolved" "https://registry.npmjs.org/nuxt-property-decorator/-/nuxt-property-decorator-2.9.1.tgz"
+  "version" "2.9.1"
+  dependencies:
+    "vue-class-component" "^7.2.6"
+    "vue-property-decorator" "^9.0.0"
+    "vuex-class" "^0.3.2"
+    "vuex-module-decorators" "^1.0.1"
 
 "nuxt@^2.15.3":
   "integrity" "sha512-opxIwaiX4/MvPD5yHEHvtPSEkQKPxg4WPscstnvWC8zX2n74/3DzlNQQAbxtLngW7tze9wsWavxgSMtJXsA8Uw=="
@@ -11785,6 +11807,11 @@
   "resolved" "https://registry.npmjs.org/vm-browserify/-/vm-browserify-1.1.2.tgz"
   "version" "1.1.2"
 
+"vue-class-component@*", "vue-class-component@^6.0.0 || ^7.0.0", "vue-class-component@^7.2.6":
+  "integrity" "sha512-+eaQXVrAm/LldalI272PpDe3+i4mPis0ORiMYxF6Ae4hyuCh15W8Idet7wPUEs4N4YptgFHGys4UrgNQOMyO6w=="
+  "resolved" "https://registry.npmjs.org/vue-class-component/-/vue-class-component-7.2.6.tgz"
+  "version" "7.2.6"
+
 "vue-client-only@^2.0.0":
   "integrity" "sha512-vKl1skEKn8EK9f8P2ZzhRnuaRHLHrlt1sbRmazlvsx6EiC3A8oWF8YCBrMJzoN+W3OnElwIGbVjsx6/xelY1AA=="
   "resolved" "https://registry.npmjs.org/vue-client-only/-/vue-client-only-2.1.0.tgz"
@@ -11855,6 +11882,11 @@
   "resolved" "https://registry.npmjs.org/vue-no-ssr/-/vue-no-ssr-1.1.1.tgz"
   "version" "1.1.1"
 
+"vue-property-decorator@^9.0.0":
+  "integrity" "sha512-xYA8MkZynPBGd/w5QFJ2d/NM0z/YeegMqYTphy7NJQXbZcuU6FC6AOdUAcy4SXP+YnkerC6AfH+ldg7PDk9ESQ=="
+  "resolved" "https://registry.npmjs.org/vue-property-decorator/-/vue-property-decorator-9.1.2.tgz"
+  "version" "9.1.2"
+
 "vue-router@^3.5.1":
   "integrity" "sha512-RRQNLT8Mzr8z7eL4p7BtKvRaTSGdCbTy2+Mm5HTJvLGYSSeG9gDzNasJPP/yOYKLy+/cLG/ftrqq5fvkFwBJEw=="
   "resolved" "https://registry.npmjs.org/vue-router/-/vue-router-3.5.1.tgz"
@@ -11895,7 +11927,7 @@
   "resolved" "https://registry.npmjs.org/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.9.1.tgz"
   "version" "1.9.1"
 
-"vue@^2.6.10", "vue@^2.6.12":
+"vue@*", "vue@^2.0.0", "vue@^2.5.0", "vue@^2.6.10", "vue@^2.6.12", "vue@>=2":
   "integrity" "sha512-x2284lgYvjOMj3Za7kqzRcUSxBboHqtgRE2zlos1qWaOye5yUmHn42LB1250NJBLRwEcdrB0JRwyPTEPhfQjiQ=="
   "resolved" "https://registry.npmjs.org/vue/-/vue-2.6.14.tgz"
   "version" "2.6.14"
@@ -11909,12 +11941,22 @@
     "@vue/runtime-dom" "3.1.1"
     "@vue/shared" "3.1.1"
 
+"vuex-class@^0.3.2":
+  "integrity" "sha512-m0w7/FMsNcwJgunJeM+wcNaHzK2KX1K1rw2WUQf7Q16ndXHo7pflRyOV/E8795JO/7fstyjH3EgqBI4h4n4qXQ=="
+  "resolved" "https://registry.npmjs.org/vuex-class/-/vuex-class-0.3.2.tgz"
+  "version" "0.3.2"
+
+"vuex-module-decorators@^1.0.1":
+  "integrity" "sha512-FLWZsXV5XAtl/bcKUyQFpnSBtpc3wK/7zSdy9oKbyp71mZd4ut5y2zSd219wWW9OG7WUOlVwac4rXFFDVnq7ug=="
+  "resolved" "https://registry.npmjs.org/vuex-module-decorators/-/vuex-module-decorators-1.0.1.tgz"
+  "version" "1.0.1"
+
 "vuex-typescript@^3.0.2":
   "integrity" "sha512-0imJZMdUs60pNRPgESA+nAR+q4qK0G9odoq3g7BE8AlCJ+61NdYicoyrVSTIb5oc79+R6PFLWbzf25bO0GxZtQ=="
   "resolved" "https://registry.npmjs.org/vuex-typescript/-/vuex-typescript-3.0.2.tgz"
   "version" "3.0.2"
 
-"vuex@^3.6.2":
+"vuex@^3.0.0", "vuex@^3.6.2", "vuex@3":
   "integrity" "sha512-ETW44IqCgBpVomy520DT5jf8n0zoCac+sxWnn+hMe/CzaSejb/eVw2YToiXYX+Ex/AuHHia28vWTq4goAexFbw=="
   "resolved" "https://registry.npmjs.org/vuex/-/vuex-3.6.2.tgz"
   "version" "3.6.2"
