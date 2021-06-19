@@ -72,4 +72,8 @@ html {
 .max-w-300px {
   max-width: 300px;
 }
+
+* {
+  outline: none;
+}
 </style>

@@ -5,9 +5,17 @@
       <h3 class="font-bold">
         {{ name }}
       </h3>
-      <p class="text-gray-500 text-sm">{{ description }}</p>
-      <p class="text-sm font-medium">{{ price }} €</p>
-      <p v-if="tag" class="text-sm font-medium text-primary">{{ tag }}</p>
+      <p class="text-gray-500 text-sm">
+        {{ description }}
+      </p>
+      <p class="text-sm font-medium">
+        {{ price }} €
+      </p>
+      <div v-if="tag" class="flex mt-2">
+        <span class=" w-auto text-sm font-semibold text-primary bg-primary-30 px-2 py-1 rounded-full">
+          {{ tag }}
+        </span>
+      </div>
     </div>
   </nuxt-link>
 </template>

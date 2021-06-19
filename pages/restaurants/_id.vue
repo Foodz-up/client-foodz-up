@@ -11,13 +11,13 @@
         </p>
         <span class="text-gray-500 font-medium">Note obtenue : {{ restaurant.note }}</span>
       </div>
-        <ListArticles :articles="restaurant.articles" />
+      <ListArticles :articles="restaurant.articles" />
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue } from 'nuxt-property-decorator'
 import ListArticles from '~/components/Lists/ListArticles.vue'
 
 @Component({
@@ -42,12 +42,12 @@ export default class SpecificRestaurant extends Vue {
       articles: [
         { id: 1, type: 'Entrée', name: 'Foie gras maison', description: 'Servi avec sa confiture de figues', price: 5.20 },
         { id: 2, type: 'Entrée', name: 'Salade César', description: 'Servi sous format d\'entrée', price: 4.00 },
-        { id: 3, type: 'Plat', name: 'Hamburger savoyard', description: 'Servi avec salade et frites fraîches', price: 18.50 },
+        { id: 3, type: 'Plat', name: 'Hamburger savoyard', description: 'Servi avec salade et frites fraîches', price: 18.50, tag: 'Nouveau' },
         { id: 4, type: 'Plat', name: 'Pavé de saumon', description: 'Servi avec salade / purée maison pu riz', price: 17.20 },
         { id: 5, type: 'Désert', name: 'Tiramisu', price: 6.30 },
         { id: 6, type: 'Boisson', name: 'Coca-cola', description: '1.25 L', price: 2.40 },
         { id: 7, type: 'Plat', name: 'Hamburger savoyard', description: 'Servi avec salade et frites fraîches', price: 18.50 },
-        { id: 8, type: 'Plat', name: 'Hamburger savoyard', description: 'Servi avec salade et frites fraîches', price: 18.50 },
+        { id: 8, type: 'Plat', name: 'Hamburger savoyard', description: 'Servi avec salade et frites fraîches', price: 18.50 }
       ]
     }
 }

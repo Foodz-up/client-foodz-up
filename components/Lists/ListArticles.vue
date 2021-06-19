@@ -12,6 +12,7 @@
           :description="article.description"
           :name="article.name"
           :price="article.price"
+          :tag="article.tag"
         />
       </div>
     </div>
@@ -19,7 +20,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from 'vue-property-decorator'
+import { Component, Vue, Prop } from 'nuxt-property-decorator'
 import ArticleCard from '~/components/Cards/ArticleCard.vue'
 
 @Component({
@@ -29,7 +30,7 @@ import ArticleCard from '~/components/Cards/ArticleCard.vue'
 export default class ListArticles extends Vue {
     // TODO: need type
     @Prop({ required: true })
-    articles!: Array<{ id: number, type: string, name: string, description: string, price: number }>
+    articles!: Array<{ id: number, type: string, name: string, description: string, price: number, tag: string }>
 
     get splitedByType () {
       const newObject = this.articles.reduce(function (obj, value) {
