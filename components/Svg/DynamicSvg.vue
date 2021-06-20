@@ -22,6 +22,7 @@ import { Component, Vue, Prop } from 'nuxt-property-decorator'
     help: () => import('~/components/Svg/SvgHelp.vue'),
     promote: () => import('~/components/Svg/SvgPromote.vue'),
     setting: () => import('~/components/Svg/SvgSetting.vue'),
+    'master-card': () => import('~/components/Svg/SvgMasterCard.vue'),
     sponsor: () => import('~/components/Svg/SvgSponsor.vue')
   }
 })
