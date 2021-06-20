@@ -73,7 +73,7 @@ html {
   max-width: 300px;
 }
 
-* {
-  outline: none;
+*, button {
+  outline: none!important;
 }
 </style>

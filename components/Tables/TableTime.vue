@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button class="text-lg text-gray-500 focus:outline-none flex justify-center items-center" @click="toggleTimeTable()">
+    <button class="text-lg text-gray-500 flex justify-center items-center" @click="toggleTimeTable()">
       <span class="mr-2">
         Voir les horraires
       </span>

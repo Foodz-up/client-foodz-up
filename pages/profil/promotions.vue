@@ -4,7 +4,13 @@
       Promotions
     </h1>
 
-    <hr class="mt-4 mb-12">
+    <hr class="mt-4">
+    <div class="bg-primary-15 py-2 flex items-center">
+      <SvgBurger width="30" class="mx-4" />
+      <span class="text-primary font-medium">
+        Récupérez 15€ sur votre prochaine commande avec le code : M3rciF00dzUp
+      </span>
+    </div>
   </div>
 </template>
 

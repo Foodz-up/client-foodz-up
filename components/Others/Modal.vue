@@ -10,15 +10,9 @@
           <slot />
         </div>
         <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-          <button type="button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-primary text-base font-medium text-white hover:bg-primary-80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm" @click="save()">
-            Sauvegarder
-          </button>
-          <button type="button" class="mt-3 w-full inline-flex justify-center rounded-md border shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm" @click="cancel()">
-            Retour
-          </button>
-          <button type="button" class="mr-auto mt-3 w-full inline-flex justify-center rounded-md border bg-red-pastel shadow-sm px-4 py-2  text-base font-medium text-white hover:bg-red-pastel-80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm" @click="remove()">
-            Supprimer
-          </button>
+          <ButtonFoodzUp :class="{'hidden': onlyCancel}" :title="'Sauvegarder'" type="button" class="w-full bg-primary text-white hover:bg-primary-80 sm:ml-3 sm:w-auto sm:text-sm" @click="save()" />
+          <ButtonFoodzUp :title="'Retour'" type="button" class="mt-3 w-full text-gray-700 hover:bg-gray-50 sm:mt-0 sm:ml-3 sm:w-auto" @click="cancel()" />
+          <ButtonFoodzUp :class="{'hidden': onlyCancel}" :title="'Supprimer'" type="button" class="mr-auto mt-3 w-full bg-red-pastel text-white hover:bg-red-pastel-80 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm" @click="remove()" />
         </div>
       </div>
     </div>
@@ -26,10 +20,13 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue, Prop } from 'vue-property-decorator'
 
 @Component
 export default class Modal extends Vue {
+  @Prop({ default: false })
+  onlyCancel!: boolean
+
   save () {
     this.$emit('save')
   }

@@ -22,6 +22,12 @@ import { Component, Vue, Prop } from 'nuxt-property-decorator'
     help: () => import('~/components/Svg/SvgHelp.vue'),
     promote: () => import('~/components/Svg/SvgPromote.vue'),
     setting: () => import('~/components/Svg/SvgSetting.vue'),
+    lock: () => import('~/components/Svg/SvgLock.vue'),
+    envelope: () => import('~/components/Svg/SvgEnvelope.vue'),
+    number: () => import('~/components/Svg/SvgNumber.vue'),
+    loop: () => import('~/components/Svg/SvgLoop.vue'),
+    share: () => import('~/components/Svg/SvgShare.vue'),
+    copy: () => import('~/components/Svg/SvgCopy.vue'),
     'master-card': () => import('~/components/Svg/SvgMasterCard.vue'),
     sponsor: () => import('~/components/Svg/SvgSponsor.vue')
   }

@@ -33,7 +33,7 @@
         A propos de FoodzUp
       </nuxt-link>
 
-      <button class="focus:outline-none w-auto cursor-pointer text-red-pastel hover:underline font-medium" @click="logout()">
+      <button class="w-auto cursor-pointer text-red-pastel hover:underline font-medium" @click="logout()">
         Se déconnecter
       </button>
     </div>
@@ -59,7 +59,7 @@ export default class Profile extends Vue {
     { icon: 'help', route: '/profil/Aide', title: 'Aide', description: '' },
     { icon: 'promote', route: '/profil/promotions', title: 'Promotions', description: 'Récuperz des coupon de réduction' },
     { icon: 'deliver', route: '/profil/livreur', title: 'Devenez livreur', description: 'Inscivez-vous en quelques minutes' },
-    { icon: 'setting', route: '/profil/reglages', title: 'Réglages', description: '' }
+    { icon: 'setting', route: '/profil/reglages', title: 'Informations du compte', description: '' }
   ]
 
   // TODO: logout function

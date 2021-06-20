@@ -21,7 +21,9 @@
     "ds-foodz-up": "^1.0.0",
     "nuxt": "^2.15.3",
     "nuxt-property-decorator": "^2.9.1",
+    "vue-clipboard2": "^0.3.1",
     "vue-component-foodz-up": "^0.1.73",
+    "vue-social-sharing": "^3.0.8",
     "vuex-typescript": "^3.0.2"
   },
   "devDependencies": {
