@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-row justify-between w-auto">
+  <div class="flex flex-row justify-between w-full">
     <img :src="require(`assets/img/${img}`)" class="object-cover w-1/3 mr-4">
     <div class="w-2/3">
       <h3 class="font-bold text-xl">
@@ -43,7 +43,7 @@
 import { Component, Vue, Prop } from 'nuxt-property-decorator'
 
 @Component
-export default class ArticleCard extends Vue {
+export default class OrderCard extends Vue {
     @Prop({ required: true })
     id!: number
 

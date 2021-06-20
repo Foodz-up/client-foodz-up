@@ -11,11 +11,11 @@
             stroke-linejoin="round"
             stroke-width="2"
             viewBox="0 0 24 24"
-            class="w-6 h-6"
+            class="w-7 h-7"
           ><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
         </button>
       </span>
-      <input v-model="searchValue" type="text" class="w-full placeholder-gray-500 py-2 font-medium text-gray-800 bg-gray-300 rounded-full pl-12" :placeholder="placeholder">
+      <input v-model="searchValue" type="text" class="text-2xl w-full placeholder-gray-500 py-2 font-medium text-gray-800 bg-gray-300 rounded-full pl-12" :placeholder="placeholder">
     </div>
   </form>
 </template>
@@ -37,7 +37,7 @@ export default class SearchInput extends Vue {
   searchValue:string = ''
 
   makeSearch (searchValue:string) {
-    this.$emit('searchChange', { searchValue })
+    this.$emit('searchChange', searchValue)
   }
 }
 </script>
