@@ -12,7 +12,7 @@
     <div class="bg-primary-15 py-2 flex items-center">
       <SvgBurger width="30" class="mx-4" />
       <span class="text-primary font-medium">
-        Récupérez 15€ sur votre prochaine commande !
+        Récupérez 15€ sur votre prochaine commande avec le code : M3rciF00dzUp
       </span>
     </div>
 
@@ -52,14 +52,14 @@ import CardNavigation from '~/components/Cards/CardNavigation.vue'
 export default class Profile extends Vue {
   // TODO: need type (description not required)
   items: Array<{ icon: string, route: string, title: string, description: string }> = [
-    { icon: 'covid', route: '/profil/covid-19', title: 'Covid-19', description: '' },
+    { icon: 'covid', route: '/profil/covid', title: 'Covid-19', description: '' },
     { icon: 'card', route: '/profil/cartes', title: 'Cartes bancaire', description: 'Editer vos moyens de paiement' },
     { icon: 'favourite', route: '/profil/favoris', title: 'Vos favoris', description: '' },
-    { icon: 'sponsor', route: '/profil/parainage', title: 'Pairainage', description: 'Récuperz votre code parainage' },
+    { icon: 'sponsor', route: '/profil/parrainage', title: 'Pairrainage', description: 'Récuperz votre code parainage' },
     { icon: 'help', route: '/profil/Aide', title: 'Aide', description: '' },
-    { icon: 'promote', route: '/profil/promotion', title: 'Promotion', description: 'Récuperz des coupon de réduction' },
+    { icon: 'promote', route: '/profil/promotions', title: 'Promotions', description: 'Récuperz des coupon de réduction' },
     { icon: 'deliver', route: '/profil/livreur', title: 'Devenez livreur', description: 'Inscivez-vous en quelques minutes' },
-    { icon: 'setting', route: '/profil/reglage', title: 'Réglage', description: '' }
+    { icon: 'setting', route: '/profil/reglages', title: 'Réglages', description: '' }
   ]
 
   // TODO: logout function

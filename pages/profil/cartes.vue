@@ -10,13 +10,13 @@
       Carte(s) bancaire(s)
     </h2>
 
-    <div class="cursor-pointer flex items-center p-4 hover:bg-gray-100" @click="toggleModal()">
+    <div v-if="formCard.cardNumber" class="cursor-pointer flex items-center p-4 hover:bg-gray-100" @click="toggleModal()">
       <SvgMasterCard width="75" height="50" class="bg-gray-900 px-3" />
-      <span class="ml-4 text-2xl font-medium"><span class="text-3xl font-medium">••••</span> 3678</span>
+      <span class="ml-4 text-2xl font-medium"><span class="text-3xl font-medium">•••• </span>{{ cardEndNumber }}</span>
       <SvgEdit width="45" class="ml-auto px-3 text-gray-700" />
     </div>
 
-    <button class="focus:outline-none mt-4 text-left text-gray-500 hover:underline w-full mr-2 text-primary font-medium" to="/about">
+    <button v-if="!formCard.cardNumber" class="focus:outline-none mt-4 text-left text-gray-500 hover:underline w-full mr-2 text-primary font-medium" to="/about">
       Ajouter un moyen de paiment
     </button>
 
@@ -40,7 +40,11 @@ export default class ProfileCard extends Vue {
   modal:boolean = false
 
   formCard: {cardNumber: string, expDate: string, cvv: string} = {
-    cardNumber: '', expDate: '', cvv: ''
+    cardNumber: '1532 1254 1253 3678', expDate: '', cvv: ''
+  }
+
+  get cardEndNumber () {
+    return this.formCard.cardNumber.split(' ').pop()
   }
 
   toggleModal () {
