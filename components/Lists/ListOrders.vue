@@ -5,7 +5,7 @@
         {{ orderArrayByStatus[0].status }}
       </h2>
       <div class="grid gap-7 gap-y-12 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
-        <OrderCard
+        <CardOrder
           v-for="order in orderArrayByStatus"
           :id="order.id"
           :key="order.id"
@@ -23,10 +23,10 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'nuxt-property-decorator'
-import OrderCard from '~/components/Cards/OrderCard.vue'
+import CardOrder from '~/components/Cards/CardOrder.vue'
 
 @Component({
-  components: { OrderCard }
+  components: { CardOrder }
 })
 
 export default class ListOrders extends Vue {

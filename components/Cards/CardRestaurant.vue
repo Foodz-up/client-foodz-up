@@ -26,7 +26,7 @@
 import { Component, Vue, Prop } from 'nuxt-property-decorator'
 
 @Component
-export default class RestaurantCard extends Vue {
+export default class CardRestaurant extends Vue {
     @Prop({ required: true })
     id!: number
 

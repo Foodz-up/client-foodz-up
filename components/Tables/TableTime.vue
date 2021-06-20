@@ -35,7 +35,7 @@
 import { Component, Vue, Prop } from 'vue-property-decorator'
 
 @Component
-export default class TimeTable extends Vue {
+export default class TableTime extends Vue {
     @Prop({ required: true })
     timetable!: {
         lundi: { mStart: string, mEnd: string, aStart: string, aEnd: string },

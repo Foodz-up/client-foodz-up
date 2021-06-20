@@ -24,7 +24,7 @@
 import { Component, Vue, Prop } from 'nuxt-property-decorator'
 
 @Component
-export default class SearchInput extends Vue {
+export default class InputSearch extends Vue {
   @Prop({ default: 'GET' })
   method!: string
 

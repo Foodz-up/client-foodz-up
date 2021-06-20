@@ -21,19 +21,19 @@
         </div>
       </div>
       <!-- TODO: place to cart at the end -->
-      <AddToCartButton v-if="addToCartButton" class="mt-2 self-end" :item-number="itemNumber" @removeItemNumber="removeItemNumber()" @addItemNumber="addItemNumber()" />
+      <ButtonAddToCart v-if="addToCartButton" class="mt-2 self-end" :item-number="itemNumber" @removeItemNumber="removeItemNumber()" @addItemNumber="addItemNumber()" />
     </div>
   </nuxt-link>
 </template>
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'nuxt-property-decorator'
-import AddToCartButton from '~/components/Buttons/AddToCartButton.vue'
+import ButtonAddToCart from '~/components/Buttons/ButtonAddToCart.vue'
 
 @Component({
-  components: { AddToCartButton }
+  components: { ButtonAddToCart }
 })
-export default class ArticleCard extends Vue {
+export default class CardArticle extends Vue {
     @Prop()
     id!: number
 

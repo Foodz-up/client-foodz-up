@@ -1,6 +1,6 @@
 <template>
   <div>
-    <SearchInput class="max-w-lg m-3 mt-5" :placeholder="'Restaurants, cuisines et autres...'" @searchChange="makeSearch" />
+    <InputSearch class="max-w-lg m-3 mt-5" :placeholder="'Restaurants, cuisines et autres...'" @searchChange="makeSearch" />
     <ListCategories v-if="isNotEmptyCategoryOption" :categories="categories" @chooseCategory="updateCategoryOption" />
   </div>
 </template>

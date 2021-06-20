@@ -11,7 +11,7 @@
         </p>
         <span class="text-gray-500 text-xl font-medium">Note obtenue : {{ restaurant.note }}</span>
       </div>
-      <TimeTable :timetable="restaurant.timetable" />
+      <TableTime :timetable="restaurant.timetable" />
 
       <ListArticles :articles="restaurant.articles" />
     </div>
@@ -21,10 +21,10 @@
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 import ListArticles from '~/components/Lists/ListArticles.vue'
-import TimeTable from '~/components/Tables/TimeTable.vue'
+import TableTime from '~/components/Tables/TableTime.vue'
 
 @Component({
-  components: { ListArticles, TimeTable }
+  components: { ListArticles, TableTime }
 })
 export default class SpecificRestaurant extends Vue {
     // TODO: need type

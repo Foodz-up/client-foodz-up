@@ -43,7 +43,7 @@
 import { Component, Vue, Prop } from 'nuxt-property-decorator'
 
 @Component
-export default class OrderCard extends Vue {
+export default class CardOrder extends Vue {
     @Prop({ required: true })
     id!: number
 

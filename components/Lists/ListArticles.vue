@@ -5,7 +5,7 @@
         {{ articleArrayByType[0].type }}
       </h2>
       <div class="grid gap-7 gap-y-12 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
-        <ArticleCard
+        <CardArticle
           v-for="article in articleArrayByType"
           :id="article.id"
           :key="article.id"
@@ -22,10 +22,10 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'nuxt-property-decorator'
-import ArticleCard from '~/components/Cards/ArticleCard.vue'
+import CardArticle from '~/components/Cards/CardArticle.vue'
 
 @Component({
-  components: { ArticleCard }
+  components: { CardArticle }
 })
 
 export default class ListArticles extends Vue {

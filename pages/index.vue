@@ -15,7 +15,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
-import RestaurantCard from '~/components/Cards/RestaurantCard.vue'
+import RestaurantCard from '~/components/Cards/CardRestaurant.vue'
 
 @Component({
   components: { RestaurantCard }

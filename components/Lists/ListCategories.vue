@@ -5,7 +5,7 @@
         {{ isTopCategory(categoryArrayByStatus[0].topCategory) }}
       </h2>
       <div class="grid gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-        <CategoryCard
+        <CardCategory
           v-for="category in categoryArrayByStatus"
           :key="category.id"
           :name="category.name"
@@ -20,10 +20,10 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'nuxt-property-decorator'
-import CategoryCard from '~/components/Cards/CategoryCard.vue'
+import CardCategory from '~/components/Cards/CardCategory.vue'
 
 @Component({
-  components: { CategoryCard }
+  components: { CardCategory }
 })
 
 export default class ListCategories extends Vue {

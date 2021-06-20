@@ -22,7 +22,7 @@
 import { Component, Vue, Prop } from 'vue-property-decorator'
 
 @Component
-export default class AddToCartButton extends Vue {
+export default class ButtonAddToCart extends Vue {
     @Prop({ required: true })
     itemNumber!: number
 

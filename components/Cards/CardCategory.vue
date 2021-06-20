@@ -14,7 +14,7 @@
 import { Component, Vue, Prop } from 'nuxt-property-decorator'
 
 @Component
-export default class CategoryCard extends Vue {
+export default class CardCategory extends Vue {
     @Prop({ required: true })
     name!: string
 

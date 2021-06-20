@@ -1,7 +1,7 @@
 import Vue from 'vue'
-import SearchInput from '~/components/Inputs/SearchInput.vue'
+import InputSearch from '~/components/Inputs/InputSearch.vue'
 
-const components = { SearchInput }
+const components = { InputSearch }
 
 Object.entries(components).forEach(([name, component]) => {
   Vue.component(name, component)
