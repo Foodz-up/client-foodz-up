@@ -4900,6 +4900,11 @@
     "is-date-object" "^1.0.1"
     "is-symbol" "^1.0.2"
 
+"es6-promise@^4.0.5":
+  "integrity" "sha512-HJDGx5daxeIvxdBxvG2cb9g4tEvwIk3i8+nhX0yGrYmZUzbkdg8QbDevheDB8gd0//uPj4c1EQua8Q+MViT0/w=="
+  "resolved" "https://registry.npmjs.org/es6-promise/-/es6-promise-4.2.8.tgz"
+  "version" "4.2.8"
+
 "escalade@^3.1.1":
   "integrity" "sha512-k0er2gUkLf8O0zKJiAhmkTnJlTvINGv7ygDNPbeIsX/TJjGJZHuh9B2UxbsaEkmlEo9MfhrSzmhIlhRlI2GXnw=="
   "resolved" "https://registry.npmjs.org/escalade/-/escalade-3.1.1.tgz"
@@ -5895,6 +5900,13 @@
   "version" "1.2.2"
   dependencies:
     "delegate" "^3.1.2"
+
+"google-maps-api-loader@^1.1.1":
+  "integrity" "sha512-+bxumYl6WCxKDjygLFF2FxrNyKIB0QgWKFb+EZ6F5wt/MoU2cm/8se9uQ0o1nY7389F2qe6ocdpSFn1bKQAD5w=="
+  "resolved" "https://registry.npmjs.org/google-maps-api-loader/-/google-maps-api-loader-1.1.1.tgz"
+  "version" "1.1.1"
+  dependencies:
+    "es6-promise" "^4.0.5"
 
 "graceful-fs@^4.1.11", "graceful-fs@^4.1.15", "graceful-fs@^4.1.2", "graceful-fs@^4.1.6", "graceful-fs@^4.2.0", "graceful-fs@^4.2.4":
   "integrity" "sha512-nTnJ528pbqxYanhpDYsi4Rd8MAeaBA67+RZ10CM1m3bTAVFEDcd5AuA4a6W5YkGZ1iNXHzZz8T6TBKLeBuNriQ=="
@@ -8125,6 +8137,11 @@
   "resolved" "https://registry.npmjs.org/node-int64/-/node-int64-0.4.0.tgz"
   "version" "0.4.0"
 
+"node-js-marker-clusterer@^1.0.0":
+  "integrity" "sha1-0Joelj68X2wWLs6FEOnmgLugl6k="
+  "resolved" "https://registry.npmjs.org/node-js-marker-clusterer/-/node-js-marker-clusterer-1.0.0.tgz"
+  "version" "1.0.0"
+
 "node-libs-browser@^2.2.1":
   "integrity" "sha512-h/zcD8H9kaDZ9ALUWwlBUDo6TKF8a7qBSCSEGfjTVIYeqsioSKaAX+BN7NgiMGp6iSIXZ3PxgCu8KS3b71YK5Q=="
   "resolved" "https://registry.npmjs.org/node-libs-browser/-/node-libs-browser-2.2.1.tgz"
@@ -8278,6 +8295,14 @@
   "integrity" "sha1-b2gragJ6Tp3fpFZM0lidHU5mnt4="
   "resolved" "https://registry.npmjs.org/num2fraction/-/num2fraction-1.2.2.tgz"
   "version" "1.2.2"
+
+"nuxt-gmaps@^1.2.10":
+  "integrity" "sha512-IeYXeR6cJpVfSDa0+IYht7r7IZNCL5uK6oWH8e1JY95+NbJBBH6Nas9BmR+9ZIkCw6aFrUwXEkOFgg8RefjlJw=="
+  "resolved" "https://registry.npmjs.org/nuxt-gmaps/-/nuxt-gmaps-1.2.10.tgz"
+  "version" "1.2.10"
+  dependencies:
+    "google-maps-api-loader" "^1.1.1"
+    "node-js-marker-clusterer" "^1.0.0"
 
 "nuxt-property-decorator@^2.9.1":
   "integrity" "sha512-dE2GrrGKZMhv0dHAr+Lmj+JOQfjIouINgF58QNRDFNOZXMJrXxKO5zGqvCRwmx3hxqqwht7TXHdz9w1AnvL2IA=="
