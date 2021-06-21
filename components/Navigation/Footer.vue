@@ -16,7 +16,7 @@
             <nuxt-link to="politique" class="mx-4 text-base font-medium text-gray-500 hover:text-gray-900">
               Politique de confidentialité
             </nuxt-link>
-            <nuxt-link to="Conditions" class="mx-4 text-base font-medium text-gray-500 hover:text-gray-900">
+            <nuxt-link to="conditions" class="mx-4 text-base font-medium text-gray-500 hover:text-gray-900">
               Conditions
             </nuxt-link>
           </div>
