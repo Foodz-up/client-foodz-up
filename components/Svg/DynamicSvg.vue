@@ -9,11 +9,6 @@ import { Component, Vue, Prop } from 'nuxt-property-decorator'
 
 @Component({
   components: {
-    /*
-      Importer tous les composants Strapi
-    */
-
-    // Titles
     profile: () => import('~/components/Svg/SvgProfile.vue'),
     card: () => import('~/components/Svg/SvgCard.vue'),
     covid: () => import('~/components/Svg/SvgCovid.vue'),
