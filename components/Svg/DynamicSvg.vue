@@ -9,11 +9,6 @@ import { Component, Vue, Prop } from 'nuxt-property-decorator'
 
 @Component({
   components: {
-    /*
-      Importer tous les composants Strapi
-    */
-
-    // Titles
     profile: () => import('~/components/Svg/SvgProfile.vue'),
     card: () => import('~/components/Svg/SvgCard.vue'),
     covid: () => import('~/components/Svg/SvgCovid.vue'),
@@ -32,7 +27,7 @@ import { Component, Vue, Prop } from 'nuxt-property-decorator'
     sponsor: () => import('~/components/Svg/SvgSponsor.vue')
   }
 })
-export default class DynamicZone extends Vue {
+export default class DynamicSvg extends Vue {
   @Prop({ required: true })
   componentName!: string
 
