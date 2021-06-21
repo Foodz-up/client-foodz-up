@@ -30,14 +30,12 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { Greeter } from 'design-system-foodz-up'
 import { DsComponentFoodzUpSample } from 'ds-component-foodz-up'
 
 export default Vue.extend({
   components: { DsComponentFoodzUpSample },
   computed: {
     test () {
-      return Greeter('e')
     }
   }
 })
