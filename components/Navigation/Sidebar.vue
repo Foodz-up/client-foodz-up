@@ -2,8 +2,8 @@
   <!-- This example requires Tailwind CSS v2.0+ -->
   <div class="z-50 sticky top-0 left-0 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="flex justify-between items-center border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
-        <div class="flex items-center justify-start lg:w-0 lg:flex-1">
+      <div class="flex justify-between items-center border-b-2 border-gray-100 py-6 md:space-x-10">
+        <div class="flex items-center">
           <a href="#">
             <span class="sr-only">Workflow</span>
             <img
@@ -66,7 +66,7 @@
             </div>
           </div>
         </nav>
-        <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
+        <div class="hidden md:flex items-center">
           <nuxt-link to="profil">
             <img class="inline-block h-10 w-10 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
           </nuxt-link>
