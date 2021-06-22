@@ -11,6 +11,7 @@
         Récupérez 15€ sur votre prochaine commande avec le code : M3rciF00dzUp
       </span>
     </div>
+    <LoremFoodzUp />
   </div>
 </template>
 

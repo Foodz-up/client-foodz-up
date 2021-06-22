@@ -1,9 +1,8 @@
 <template>
   <div class="p-4">
-    <h1 class="mt-4 text-4xl text-center">
-      <span class="font-medium">{{ order.status }}</span> : Commande du {{ dateFormat(order.date) }}
+    <h1 class="mt-4 mb-10 text-4xl text-start">
+      <span class="font-semibold">{{ order.status }}</span> : Commande du {{ dateFormat(order.date) }}
     </h1>
-    <hr class="my-4">
     <LoadStatusOrder :status="order.status" />
 
     <GMap
@@ -33,29 +32,31 @@
       <GMapCircle :options="circleOptions" />
     </GMap>
 
-    <h2 class="text-2xl mt-8">
-      Rappel de votre commande :
-    </h2>
-    <p class="text-xl text-primary font-medium my-4">
-      <nuxt-link :to="`/restaurants/${order.restaurantId}`">
-        {{ order.restaurantName }}
-      </nuxt-link> -> {{ order.address }}
-    </p>
-    <p><span class="font-medium text-lg">Nombre d'articles :</span> {{ order.itemsNumber }}</p>
-    <p><span class="font-medium text-lg">Prix de la commande :</span> {{ order.price }} €</p>
-    <p class="font-medium text-lg">
-      Liste d'articles :
-    </p>
-    <ul class="ml-3">
-      <li v-for="item in order.items" :key="item.id" class="flex items-center">
-        <p>{{ item.type }}</p>
-        <span class="mx-1 font-bold text-gray-500 text-lg">•</span>
-        <p>{{ item.name }} :</p>
-        <p class="font-semibold text-gray-500 text-sm ml-1">
-          {{ item.price }} €
-        </p>
-      </li>
-    </ul>
+    <div class="mt-10">
+      <h2 class="text-2xl">
+        Rappel de votre commande :
+      </h2>
+      <p class="text-xl text-primary font-medium my-4">
+        <nuxt-link :to="`/restaurants/${order.restaurantId}`">
+          {{ order.restaurantName }}
+        </nuxt-link> -> {{ order.address }}
+      </p>
+      <p><span class="font-medium text-lg">Nombre d'articles :</span> {{ order.itemsNumber }}</p>
+      <p><span class="font-medium text-lg">Prix de la commande :</span> {{ order.price }} €</p>
+      <p class="font-medium text-lg">
+        Liste d'articles :
+      </p>
+      <ul class="ml-3">
+        <li v-for="item in order.items" :key="item.id" class="flex items-center">
+          <p>{{ item.type }}</p>
+          <span class="mx-1 font-bold text-gray-500 text-lg">•</span>
+          <p>{{ item.name }} :</p>
+          <p class="font-semibold text-gray-500 text-sm ml-1">
+            {{ item.price }} €
+          </p>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 

@@ -1,7 +1,7 @@
 <template>
-  <footer class="relative bg-white">
+  <footer class="relative bg-gray-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="flex justify-between items-center border-t-2 border-gray-100 py-6">
+      <div class="flex justify-between items-center py-6">
         <div class="flex flex-col sm:flex-row items-center justify-between w-full">
           <div class="flex">
             <a href="#">

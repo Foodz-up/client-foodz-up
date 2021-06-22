@@ -5,6 +5,11 @@
     </h1>
 
     <hr class="mt-4 mb-12">
+    <div>
+      <span>Vos repas favoris arrivent bientôt, suivez l'actualité : </span>
+      <a href="https://www.linkedin.com/in/thomas-clmt/" target="_blank" rel="noopener noreferrer" class="text-blue-500 hover:underline">https://www.linkedin.com/in/thomas-clmt/</a>
+    </div>
+    <LoremFoodzUp />
   </div>
 </template>
 

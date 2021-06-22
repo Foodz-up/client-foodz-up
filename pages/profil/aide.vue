@@ -5,6 +5,11 @@
     </h1>
 
     <hr class="mt-4 mb-12">
+    <div>
+      <span>Pour toutes demandes veuillez contacter : </span>
+      <a href="mailto:thomas.clement@viacesi.fr" target="_blank" rel="noopener noreferrer" class="text-blue-500 hover:underline">thomas.clement@viacesi.fr</a>
+    </div>
+    <LoremFoodzUp />
   </div>
 </template>
 

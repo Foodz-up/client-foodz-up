@@ -5,6 +5,7 @@
     </h1>
 
     <hr class="mt-4 mb-12">
+    <LoremFoodzUp />
   </div>
 </template>
 
