@@ -3,19 +3,19 @@
   <div class="z-50 sticky top-0 left-0 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="flex justify-between items-center py-6">
-        <div class="flex items-center">
-          <a href="#">
+        <nuxt-link to="/" class="flex items-center">
+          <div href="#">
             <span class="sr-only">Workflow</span>
             <img
               class="h-8 w-auto sm:h-10"
               src="~/assets/Logo.png"
               alt=""
             >
-          </a>
-          <a class="font-bold text-primary text-2xl mx-2">
+          </div>
+          <div class="font-bold text-primary text-2xl mx-2">
             Foodz-up
-          </a>
-        </div>
+          </div>
+        </nuxt-link>
         <div class="-mr-2 -my-2 md:hidden">
           <button type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none" aria-expanded="false" @click="phoneMenuToggle()">
             <span class="sr-only">Open menu</span>

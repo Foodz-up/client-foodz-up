@@ -27,7 +27,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue } from 'nuxt-property-decorator'
 import SvgMasterCard from '~/components/Svg/SvgMasterCard.vue'
 import SvgEdit from '~/components/Svg/SvgEdit.vue'
 import Modal from '~/components/Others/Modal.vue'

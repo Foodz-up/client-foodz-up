@@ -14,7 +14,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue } from 'nuxt-property-decorator'
 import FormUpdateUser from '~/components/Forms/FormUpdateUser.vue'
 import FormPasswordChange from '~/components/Forms/FormPasswordChange.vue'
 

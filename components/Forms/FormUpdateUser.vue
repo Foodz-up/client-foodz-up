@@ -53,7 +53,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from 'vue-property-decorator'
+import { Component, Vue, Prop } from 'nuxt-property-decorator'
 import InputFoodzUp from '~/components/Inputs/InputFoodzUp.vue'
 
 @Component({

@@ -61,7 +61,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue } from 'nuxt-property-decorator'
 import ListOrders from '~/components/Lists/ListOrders.vue'
 import LoadStatusOrder from '~/components/Others/LoadStatusOrder.vue'
 
@@ -74,7 +74,7 @@ export default class Orders extends Vue {
       id: 1,
       restaurantName: 'McDonald',
       price: 18.00,
-      status: 'Commandée',
+      status: 'En cours de livraison',
       date: Date.now(),
       itemsNumber: 3,
       restaurantId: 2,

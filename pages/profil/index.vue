@@ -41,7 +41,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue } from 'nuxt-property-decorator'
 import SvgProfile from '~/components/Svg/SvgProfile.vue'
 import SvgBurger from '~/components/Svg/SvgBurger.vue'
 import CardNavigation from '~/components/Cards/CardNavigation.vue'
