@@ -21,6 +21,8 @@ import RestaurantCard from '~/components/Cards/CardRestaurant.vue'
   components: { RestaurantCard }
 })
 export default class Home extends Vue {
+  modalOpen: boolean = false
+
   // TODO: need type
   restaurants: Array<object> = [
     { id: 1, type: 'Fast food', name: 'Mcdonald', note: 4.5, waiting: '10-20 min' },

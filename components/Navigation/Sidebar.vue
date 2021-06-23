@@ -15,6 +15,9 @@
           <div class="font-bold text-primary text-2xl mx-2">
             Foodz-up
           </div>
+          <div v-if="$auth.loggedIn">
+            aaa: {{ $auth.user }}
+          </div>
         </nuxt-link>
         <div class="-mr-2 -my-2 md:hidden">
           <button type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none" aria-expanded="false" @click="phoneMenuToggle()">

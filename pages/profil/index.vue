@@ -1,5 +1,5 @@
 <template>
-  <div class="m-4">
+  <div>
     <div class="flex items-center">
       <SvgProfile width="40" class="mr-3" />
       <span class="mt-1">
@@ -33,9 +33,7 @@
         A propos de FoodzUp
       </nuxt-link>
 
-      <button class="w-auto cursor-pointer text-red-pastel hover:underline font-medium" @click="logout()">
-        Se déconnecter
-      </button>
+      <ButtonLogOut />
     </div>
   </div>
 </template>
@@ -45,9 +43,10 @@ import { Component, Vue } from 'nuxt-property-decorator'
 import SvgProfile from '~/components/Svg/SvgProfile.vue'
 import SvgBurger from '~/components/Svg/SvgBurger.vue'
 import CardNavigation from '~/components/Cards/CardNavigation.vue'
+import ButtonLogOut from '~/components/Buttons/ButtonLogOut.vue'
 
 @Component({
-  components: { SvgProfile, CardNavigation, SvgBurger }
+  components: { SvgProfile, CardNavigation, SvgBurger, ButtonLogOut }
 })
 export default class Profile extends Vue {
   // TODO: need type (description not required)
@@ -61,9 +60,6 @@ export default class Profile extends Vue {
     { icon: 'deliver', route: '/profil/livreur', title: 'Devenez livreur', description: 'Inscivez-vous en quelques minutes' },
     { icon: 'setting', route: '/profil/reglages', title: 'Informations du compte', description: '' }
   ]
-
-  // TODO: logout function
-  logout () {}
 }
 </script>
 

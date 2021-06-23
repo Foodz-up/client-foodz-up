@@ -8,15 +8,6 @@ class AuthStore extends BaseStoreService<AuthStoreState> {
   public mutations = AuthStoreModule.mutations
   public getters = AuthStoreModule.getters
 
-  // async init(token: string) {
-  //   store().$api.setToken(token)
-  //   const user = await store().$api.user.me()
-  //   this.setUser(user)
-  //   await this.fetchMagasins()
-  //   this.setCurrentMagasin(this.magasins[0]?.id)
-  //   await this.fetchProjets()
-  // }
-
   setToken (token: any) {
     this.commit(this.mutations.setToken, token)
   }
@@ -35,6 +26,7 @@ class AuthStore extends BaseStoreService<AuthStoreState> {
 
   logout () {
     this.commit(this.mutations.setUser, null)
+    this.commit(this.mutations.setToken, null)
   }
 }
 export default new AuthStore()

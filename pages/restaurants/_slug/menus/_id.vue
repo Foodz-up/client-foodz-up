@@ -1,5 +1,5 @@
 <template>
-  <div class="m-4">
+  <div>
     <h1 class="mt-1 text-4xl font-medium">
       {{ menu.name }}
     </h1>
