@@ -45,10 +45,15 @@
       :width="20"
       class="mt-6"
     />
-    <ButtonFoodzUp :title="'Enregistrer'" type="submit" class="mt-4 bg-primary text-white hover:bg-primary-80" />
-    <nuxt-link class="text-gray-500 hover:underline w-full ml-2" to="/auth/oublie">
-      Mot de passe oublié ?
-    </nuxt-link>
+    <div>
+      <ButtonFoodzUp :title="'Enregistrer'" type="submit" class="mt-4 bg-primary text-white hover:bg-primary-80" />
+      <nuxt-link class="text-gray-500 hover:underline w-full ml-2" to="/auth/oublie">
+        Mot de passe oublié ?
+      </nuxt-link>
+    </div>
+    <button class="m-2 w-auto cursor-pointer text-red-pastel hover:underline font-medium" @click="remove()">
+      Supprimer mon compte
+    </button>
   </form>
 </template>
 
@@ -69,6 +74,14 @@ export default class FormUpdateUser extends Vue {
     updateUser () {
       console.log(this.user)
     }
+
+  // TODO: logout function
+  logout () {}
+
+    // TODO: delete function
+  remove () {
+    this.logout()
+  }
 }
 </script>
 
