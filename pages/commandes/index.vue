@@ -1,15 +1,16 @@
 <template>
-  <div>
-    <h1 class="mt-4 text-4xl text-center">
+  <div class="mx-4">
+    <h1 class="mt-1 text-4xl font-medium">
       Vos commandes
     </h1>
-    <hr class="my-4">
+
+    <hr class="mt-4 mb-8">
     <ListOrders :orders="orders" />
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue } from 'nuxt-property-decorator'
 import ListOrders from '~/components/Lists/ListOrders.vue'
 
 @Component({

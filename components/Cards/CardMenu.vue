@@ -1,23 +1,35 @@
 <template>
-  <div class="flex flex-row-reverse justify-between w-full">
-    <img :src="require(`assets/img/${img}`)" class="w-1/3 ml-3">
-    <div class="w-2/3 grid">
+  <div class="flex flex-col sm:flex-row-reverse justify-center items-center w-full">
+    <img :src="require(`assets/img/${img}`)" class="sm:max-h-96 w-auto sm:ml-3 mb-5 sm:mb-0">
+    <div class="w-1/2 grid">
       <div>
-        <h3 class="font-bold">
+        <h3 class="font-bold text-xl">
           {{ name }}
         </h3>
-        <p class="text-gray-500 text-sm">
+        <p class="text-gray-500 text-lg">
           {{ description }}
         </p>
+        <div>
+          <p class="text-lg font-bold text-yellow-pastel mt-5">
+            Listes des articles
+          </p>
+          <ul>
+            <li v-for="article in menuArticles" :key="article.id" class="font-medium text-sm mb-3">
+              <p>
+                {{ article.type }}
+                <span class="font-bold">•</span>
+                {{ article.name }}
+              </p>
+              <p class="text-gray-500 font-normal">
+                {{ article.description }}
+              </p>
+            </li>
+          </ul>
+        </div>
         <div class="flex items-center">
-          <p class="py-1 text-sm font-medium mr-2">
+          <p class="py-1 text-lg font-bold text-primary mr-2">
             {{ price }} €
           </p>
-          <div v-if="menuArticles" class="flex mt-auto">
-            <nuxt-link :to="`/restaurants/${restaurantId}/menus/${id}`" class="w-auto text-sm font-semibold text-white bg-gray-200 px-2 py-1 rounded-full">
-              Voir plus
-            </nuxt-link>
-          </div>
           <div v-if="tag" class="flex mt-auto">
             <span class="w-auto text-sm font-semibold text-primary bg-primary-30 px-2 py-1 rounded-full">
               {{ tag }}
@@ -38,7 +50,7 @@ import ButtonAddToCart from '~/components/Buttons/ButtonAddToCart.vue'
 @Component({
   components: { ButtonAddToCart }
 })
-export default class CardArticle extends Vue {
+export default class CardMenu extends Vue {
     @Prop()
     id!: number
 
@@ -59,9 +71,6 @@ export default class CardArticle extends Vue {
 
     @Prop()
     tag!: string
-
-    @Prop({ required: true })
-    restaurantId!: number
 
     @Prop({ default: true })
     addToCartButton!: boolean

@@ -5,11 +5,12 @@
     </h1>
 
     <hr class="mt-4 mb-12">
+    <LoremFoodzUp />
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue } from 'nuxt-property-decorator'
 
 @Component({
   components: { }

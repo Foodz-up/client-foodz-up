@@ -58,7 +58,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue } from 'nuxt-property-decorator'
 import VueClipboard from 'vue-clipboard2'
 import VueSocialSharing from 'vue-social-sharing'
 import DynamicSvg from '~/components/Svg/DynamicSvg.vue'

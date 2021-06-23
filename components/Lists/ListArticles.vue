@@ -13,6 +13,8 @@
           :name="article.name"
           :price="article.price"
           :tag="article.tag"
+          :menu-articles="article.menuArticles"
+          :restaurant-id="restaurantId"
           class="pb-5 border-gray-100 border-b-2 sm:border-none sm:pb-0"
         />
       </div>
@@ -31,7 +33,10 @@ import CardArticle from '~/components/Cards/CardArticle.vue'
 export default class ListArticles extends Vue {
     // TODO: need type
     @Prop({ required: true })
-    articles!: Array<{ id: number, type: string, name: string, description: string, price: number, tag: string }>
+    articles!: Array<{ id: number, type: string, name: string, description: string, price: number, tag: string, menuArticles: Array<object> }>
+
+    @Prop({ required: true })
+    restaurantId!: number
 
     get splitedByType () {
       const newObject = this.articles.reduce(function (obj, value) {
