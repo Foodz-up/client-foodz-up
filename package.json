@@ -14,11 +14,13 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.13.1",
     "@nuxtjs/pwa": "^3.3.5",
+    "autoprefixer": "^10.2.6",
     "core-js": "^3.9.1",
     "ds-component-foodz-up": "^0.0.5",
     "nuxt": "^2.15.3",
     "nuxt-gmaps": "^1.2.10",
     "nuxt-property-decorator": "^2.9.1",
+    "tailwindcss": "^2.2.2",
     "vue-clipboard2": "^0.3.1",
     "vue-social-sharing": "^3.0.8",
     "vuex-typescript": "^3.0.2"
@@ -38,7 +40,7 @@
     "eslint-plugin-nuxt": "^2.0.0",
     "eslint-plugin-vue": "^7.7.0",
     "jest": "^26.6.3",
-    "postcss": "^8.2.8",
+    "postcss": "^8.3.5",
     "ts-jest": "^26.5.4",
     "vue-jest": "^3.0.4"
   }

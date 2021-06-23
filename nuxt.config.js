@@ -39,6 +39,9 @@ export default {
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
     'nuxt-gmaps'
+    // ['nuxt-gmaps', {
+    //   // key: 'AIzaSyBm4if1IL8tOmj6lBtHhe9BtSMdehjIytk'
+    // }]
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios

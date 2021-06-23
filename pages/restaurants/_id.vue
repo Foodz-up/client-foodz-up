@@ -13,7 +13,7 @@
       </div>
       <TableTime :timetable="restaurant.timetable" />
 
-      <ListArticles :articles="restaurant.articles" />
+      <ListArticles :articles="restaurant.articles" :restaurant-id="restaurant.id" />
     </div>
   </div>
 </template>
@@ -29,6 +29,7 @@ import TableTime from '~/components/Tables/TableTime.vue'
 export default class SpecificRestaurant extends Vue {
     // TODO: need type
     restaurant: object = {
+      id: 1,
       img: 'noshop.jpg',
       name: 'Le petit rat porteur',
       note: 4.4,
@@ -50,7 +51,20 @@ export default class SpecificRestaurant extends Vue {
         { id: 5, type: 'Désert', name: 'Tiramisu', price: 6.30 },
         { id: 6, type: 'Boisson', name: 'Coca-cola', description: '1.25 L', price: 2.40 },
         { id: 7, type: 'Plat', name: 'Hamburger savoyard', description: 'Servi avec salade et frites fraîches', price: 18.50 },
-        { id: 8, type: 'Plat', name: 'Hamburger savoyard', description: 'Servi avec salade et frites fraîches', price: 18.50 }
+        { id: 8, type: 'Plat', name: 'Hamburger savoyard', description: 'Servi avec salade et frites fraîches', price: 18.50 },
+        {
+          id: 9,
+          type: 'Menu',
+          name: 'Happy Meal',
+          description: 'Repas de luxe pour enfants',
+          price: 40,
+          menuArticles: [
+            { id: 1, type: 'Entrée', name: 'Foie gras maison', description: 'Servi avec sa confiture de figues', price: 5.20 },
+            { id: 8, type: 'Plat', name: 'Hamburger savoyard', description: 'Servi avec salade et frites fraîches', price: 18.50 },
+            { id: 6, type: 'Boisson', name: 'Coca-cola', description: '1.25 L', price: 2.40 },
+            { id: 5, type: 'Désert', name: 'Tiramisu', price: 6.30 }
+          ]
+        }
       ]
     }
 }

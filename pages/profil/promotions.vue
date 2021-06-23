@@ -11,11 +11,12 @@
         Récupérez 15€ sur votre prochaine commande avec le code : M3rciF00dzUp
       </span>
     </div>
+    <LoremFoodzUp />
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue } from 'nuxt-property-decorator'
 
 @Component({
   components: { }
