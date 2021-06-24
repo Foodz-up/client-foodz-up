@@ -1,5 +1,3 @@
-// pages/register.vue
-
 <template>
   <section class="section">
     <div class="container">
@@ -103,9 +101,9 @@ export default {
         password: '',
         firstName: 'Thomas',
         lastName: 'ttt',
-        cityCode: null,
-        error: null
-      }
+        cityCode: null
+      },
+      error: null
     }
   },
 
@@ -113,7 +111,6 @@ export default {
     async register () {
       try {
         await this.$axios.post('auth/register', this.data)
-
         // const response = await this.$auth.loginWith('local', {
         //   data: {
         //     email: this.email,
@@ -123,7 +120,6 @@ export default {
 
         // await this.$auth.$storage.setUniversal('email', response.data.email)
         // await this.$auth.setUserToken(response.data.accessToken.accessToken, response.data.refreshToken)
-        this.error = 'ccc'
         this.$router.push('/auth/connexion')
       } catch (e) {
         this.error = e.response.data.message

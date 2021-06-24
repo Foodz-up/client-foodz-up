@@ -14,7 +14,7 @@
               <label class="label">Email</label>
               <div class="control">
                 <input
-                  v-model="email"
+                  v-model="data.email"
                   type="email"
                   class="input"
                   name="email"
@@ -25,7 +25,7 @@
               <label class="label">Password</label>
               <div class="control">
                 <input
-                  v-model="password"
+                  v-model="data.password"
                   type="password"
                   class="input"
                   name="password"
@@ -57,8 +57,10 @@ import AuthStore from '~/store/auth'
 export default {
   data () {
     return {
-      email: 'ttt@gmail.com',
-      password: 'ttt',
+      data: {
+        email: 'ttt@gmail.com',
+        password: 'ttt'
+      },
       error: null
     }
   },
@@ -66,18 +68,12 @@ export default {
   methods: {
     async login () {
       try {
-        const response = await this.$auth.loginWith('local', {
-          data: {
-            email: this.email,
-            password: this.password
-          }
-        })
+        const response = await this.$auth.loginWith('local', this.data)
         await this.$auth.$storage.setUniversal('email', response.data.email)
         await this.$auth.setUserToken(response.data.accessToken.accessToken, response.data.refreshToken)
         AuthStore.setToken({ accessToken: response.data.accessToken.accessToken, refreshToken: response.data.refreshToken })
         AuthStore.setUser(this.$auth.user)
 
-        console.log(AuthStore.user)
         this.$router.push('/')
       } catch (e) {
         console.log({ e })
