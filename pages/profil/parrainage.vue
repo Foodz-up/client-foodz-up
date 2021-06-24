@@ -22,7 +22,7 @@
       :width="20"
     />
     <div class="flex items-center ml-4 mt-2">
-      <button class="flex flex-col items-center mr-2" @click="toggleModal()">
+      <button class="flex flex-col items-center mr-2" @click="clickWithoutCode()">
         <DynamicSvg :component-name="'share'" width="18" class="mr-2 text-blue-500" />
         <span>Partager</span>
       </button>
@@ -31,6 +31,7 @@
         v-clipboard:success="onCopy"
         v-clipboard:error="onError"
         class="flex flex-col items-center ml-2"
+        @click="clickWithoutCode()"
       >
         <DynamicSvg :component-name="'copy'" width="18" class="mr-2 text-yellow-500" />
         <span>Copier</span>
@@ -47,6 +48,7 @@
         description="Notre projet de livreur de repas 'FoodzUp' est en ligne !"
         quote="Notre projet de livreur de repas 'FoodzUp' est en ligne !"
         hashtags="FoodzUp"
+        @click="clickWithoutCode()"
       >
         <img width="30" class="mr-2" :src="network.url">
         <span>
@@ -64,6 +66,8 @@ import VueSocialSharing from 'vue-social-sharing'
 import DynamicSvg from '~/components/Svg/DynamicSvg.vue'
 import InputFoodzUp from '~/components/Inputs/InputFoodzUp.vue'
 import Modal from '~/components/Others/Modal.vue'
+import AuthStore from '~/store/auth'
+import NotificationStore from '~/store/notification'
 
 Vue.use(VueSocialSharing)
 Vue.use(VueClipboard)
@@ -72,7 +76,7 @@ Vue.use(VueClipboard)
   components: { DynamicSvg, InputFoodzUp, Modal }
 })
 export default class ProfileSponsor extends Vue {
-  code: string = 'Dx-Fds98-c'
+  code: string = AuthStore.user.sponsorCode
   modal: boolean = false
   networklist: Array<{name: string, url:string}> = [
     { name: 'Facebook', url: 'http://logo.clearbit.com/facebook.com' },
@@ -87,22 +91,52 @@ export default class ProfileSponsor extends Vue {
   }
 
   shareSponsorCode () {
-    this.$router.push({ path: this.$route.path, query: { code: this.code } })
+    this.$router.push({ path: this.$route.path, query: { code: AuthStore.user.sponsorCode } })
   }
 
   onCopy (e:any) {
-    alert('Copie réussi, vous pouvez maintenant le coller : ' + e.text)
+    NotificationStore.addNotification({
+      message: 'Copie réussi, vous pouvez maintenant le coller : ' + e.text,
+      status: 200
+    })
+  }
+
+  clickWithoutCode () {
+    if (AuthStore.user.sponsorCode === null) {
+      NotificationStore.addNotification({
+        message: 'Veuillez générer un code de parrainage avant de pouvoir le copier ou le partager',
+        status: 400
+      })
+    }
   }
 
   onError () {
-    alert('La copie a rencontré un problème')
+    NotificationStore.addNotification({
+      message: 'La copie a rencontré un problème',
+      status: 400
+    })
   }
 
-  generateSponsorCode () {
+  async generateSponsorCode () {
     const caracToUse = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-+!*ù$'
-    this.code = Array(10).fill(caracToUse).map(function (x) { return x[Math.floor(Math.random() * x.length)] }).join('')
+    const code: string = Array(10).fill(caracToUse).map(function (x) { return x[Math.floor(Math.random() * x.length)] }).join('')
 
     // TODO: store that new code in database
+
+    try {
+      const response = await AuthStore.generateSponsorCode(code)
+      NotificationStore.addNotification({
+        message: response.data.message,
+        status: response.status
+      })
+      AuthStore.patchUser({ sponsorCode: response.data.sponsorCode })
+      this.code = AuthStore.user.sponsorCode
+    } catch (error) {
+      NotificationStore.addNotification({
+        message: error.response.data.message,
+        status: error.response.status
+      })
+    }
   }
 }
 </script>

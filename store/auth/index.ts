@@ -53,6 +53,14 @@ class AuthStore extends BaseStoreService<AuthStoreState> {
     this.commit(this.mutations.setToken, null)
   }
 
+  generateSponsorCode (sponsorCode: string) {
+    return axios().patch('users/sponsor', { sponsorCode })
+  }
+
+  patchUser (option: object) {
+    this.commit(this.mutations.updateUser, option)
+  }
+
   setBearer (bearer: string) {
     this.commit(this.mutations.setToken, { accessToken: bearer, refreshToken: this.user.refreshToken })
   }

@@ -19,7 +19,7 @@ export const AuthStoreModule = {
     setToken (state: AuthStoreState, token: IToken | null) {
       state.token = token
     },
-    updateUser (state: AuthStoreState, user: IUser) {
+    updateUser (state: AuthStoreState, user: any) {
       state.user = {
         ...state.user,
         ...user
