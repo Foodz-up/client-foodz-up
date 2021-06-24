@@ -1,7 +1,7 @@
 export interface IUser {
   id: number
   email: string
-  countryCode: number
+  cityCode: number
   firstName: string
   lastName: string
   profilePicture: string

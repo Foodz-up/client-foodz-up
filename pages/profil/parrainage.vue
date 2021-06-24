@@ -36,11 +36,11 @@
         <span>Copier</span>
       </button>
     </div>
-    <Modal :class="{'hidden': !modal}" :only-cancel="true" @cancel="toggleModal()">
+    <Modal :class="{'hidden': !modal}" :delete-button="false" :save-button="false" @cancel="toggleModal()">
       <ShareNetwork
-      class="flex items-center mb-2"
         v-for="(network, index) in networklist"
         :key="index"
+        class="flex items-center mb-2"
         :network="network.name"
         :url="`http://www.cesi.fr/?code=${code}`"
         title="Foodz'Up en ligne !"

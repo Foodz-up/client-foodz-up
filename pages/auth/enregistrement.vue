@@ -86,22 +86,20 @@
 </template>
 
 <script>
-import Notification from '~/components/Others/Notification.vue'
+import AuthStore from '~/store/auth'
+import NotificationStore from '~/store/notification'
 
 export default {
   auth: false,
-  components: {
-    Notification
-  },
 
   data () {
     return {
       data: {
-        email: '',
-        password: '',
+        email: 'test@gmail.com',
+        password: 'test',
         firstName: 'Thomas',
-        lastName: 'ttt',
-        cityCode: null
+        lastName: 'CLEMENT',
+        cityCode: 62000
       },
       error: null
     }
@@ -110,19 +108,17 @@ export default {
   methods: {
     async register () {
       try {
-        await this.$axios.post('auth/register', this.data)
-        // const response = await this.$auth.loginWith('local', {
-        //   data: {
-        //     email: this.email,
-        //     password: this.password
-        //   }
-        // })
-
-        // await this.$auth.$storage.setUniversal('email', response.data.email)
-        // await this.$auth.setUserToken(response.data.accessToken.accessToken, response.data.refreshToken)
+        const response = await AuthStore.register(this.data)
+        NotificationStore.addNotification({
+          message: response.data.message,
+          status: response.status
+        })
         this.$router.push('/auth/connexion')
-      } catch (e) {
-        this.error = e.response.data.message
+      } catch (error) {
+        NotificationStore.addNotification({
+          message: error.response.data.message,
+          status: error.response.status
+        })
       }
     }
   }

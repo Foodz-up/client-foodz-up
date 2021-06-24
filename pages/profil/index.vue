@@ -43,10 +43,9 @@ import { Component, Vue } from 'nuxt-property-decorator'
 import SvgProfile from '~/components/Svg/SvgProfile.vue'
 import SvgBurger from '~/components/Svg/SvgBurger.vue'
 import CardNavigation from '~/components/Cards/CardNavigation.vue'
-import ButtonLogOut from '~/components/Buttons/ButtonLogOut.vue'
 
 @Component({
-  components: { SvgProfile, CardNavigation, SvgBurger, ButtonLogOut }
+  components: { SvgProfile, CardNavigation, SvgBurger }
 })
 export default class Profile extends Vue {
   // TODO: need type (description not required)

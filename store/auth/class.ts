@@ -4,7 +4,7 @@ export class User implements IUser {
   constructor () {
     this.id = 0
     this.email = ''
-    this.countryCode = 62000
+    this.cityCode = 62000
     this.firstName = ''
     this.lastName = ''
     this.profilePicture = ''
@@ -14,7 +14,7 @@ export class User implements IUser {
     this.sponsorCode = ''
   }
 
-    countryCode: number
+    cityCode: number
     firstName: string
     lastName: string
     profilePicture: string

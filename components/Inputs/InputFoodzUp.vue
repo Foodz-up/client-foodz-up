@@ -10,7 +10,7 @@
       <input
         :id="variableDescription"
         :name="variableDescription"
-        type="text"
+        :type="type"
         :class="{'pl-16': icon}"
         class="pl-5 text-lg w-full placeholder-gray-500 py-2 font-medium text-gray-800 bg-gray-200 rounded-full"
         :placeholder="placeholder"
@@ -32,6 +32,9 @@ import DynamicSvg from '~/components/Svg/DynamicSvg.vue'
 export default class InputFoodzUp extends Vue {
   @Prop()
   icon!: string
+
+  @Prop({ default: 'text' })
+  type!: string
 
   @Prop({ default: '25' })
   width!: string
