@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-4">
+  <div>
     <h1 class="mt-1 text-4xl font-medium">
       Vos commandes
     </h1>

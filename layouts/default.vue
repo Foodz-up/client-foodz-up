@@ -1,7 +1,7 @@
 <template>
   <div>
     <Sidebar />
-    <Nuxt class="my-10 custom-layout-height" />
+    <Nuxt class="my-10 custom-layout-height mx-4" />
     <Footer />
   </div>
 </template>
