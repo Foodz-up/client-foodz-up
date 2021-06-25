@@ -22,7 +22,8 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    '~/plugins/foodz-components'
+    '~/plugins/foodz-components',
+    '~/plugins/axios'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -52,7 +53,8 @@ export default {
 
   compilerOptions: {
     types: [
-      '@nuxtjs/auth-next'
+      '@nuxtjs/auth-next',
+      '@nuxtjs/axios'
     ]
   },
 

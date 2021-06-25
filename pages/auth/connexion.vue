@@ -53,31 +53,42 @@
 
 <script>
 import AuthStore from '~/store/auth'
+import NotificationStore from '~/store/notification'
 
 export default {
   data () {
     return {
       data: {
-        email: 'ttt@gmail.com',
-        password: 'ttt'
+        email: 'test2@gmail.com',
+        password: 'test'
       },
       error: null
     }
   },
 
+  // mounted () {
+  //   this.$auth.logout()
+  // },
+
   methods: {
     async login () {
       try {
-        const response = await this.$auth.loginWith('local', this.data)
-        await this.$auth.$storage.setUniversal('email', response.data.email)
-        await this.$auth.setUserToken(response.data.accessToken.accessToken, response.data.refreshToken)
-        AuthStore.setToken({ accessToken: response.data.accessToken.accessToken, refreshToken: response.data.refreshToken })
+        const response = await this.$auth.loginWith('local', { data: this.data })
+        await this.$auth.$storage.setUniversal('email', response.data.token.email)
+        await this.$auth.setUserToken(response.data.token.accessToken.accessToken, response.data.token.refreshToken)
+        AuthStore.setToken({ accessToken: response.data.token.accessToken.accessToken, refreshToken: response.data.token.refreshToken })
         AuthStore.setUser(this.$auth.user)
 
+        NotificationStore.addNotification({
+          message: response.data.message,
+          status: response.status
+        })
         this.$router.push('/')
-      } catch (e) {
-        console.log({ e })
-        this.error = e.response.data.message
+      } catch (error) {
+        NotificationStore.addNotification({
+          message: error.response.data.message,
+          status: error.response.status
+        })
       }
     }
   }
