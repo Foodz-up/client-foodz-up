@@ -1,18 +1,17 @@
 <template>
-  <div>
-    Pas encore existant (mot de passe oublié)
+  <div class="auth-container sm:bg-white h-screen w-screen sm:flex justify-center items-center flex-none">
+    <FormForgotPassword />
   </div>
 </template>
 
-<script lang="ts">
-import { Component, Vue } from 'nuxt-property-decorator'
+<script>
+import FormForgotPassword from '~/components/Forms/FormForgotPassword.vue'
 
-    @Component
-export default class PasswordForgotten extends Vue {
-
+export default {
+  auth: false,
+  components: {
+    FormForgotPassword
+  },
+  layout: 'noSidebar'
 }
 </script>
-
-<style scoped>
-
-</style>

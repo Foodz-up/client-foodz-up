@@ -30,10 +30,8 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'nuxt-property-decorator'
-import InputFoodzUp from '~/components/Inputs/InputFoodzUp.vue'
 
 @Component({
-  components: { InputFoodzUp }
 })
 export default class FormCard extends Vue {
     @Prop({ required: true })

@@ -64,7 +64,6 @@ import { Component, Vue } from 'nuxt-property-decorator'
 import VueClipboard from 'vue-clipboard2'
 import VueSocialSharing from 'vue-social-sharing'
 import DynamicSvg from '~/components/Svg/DynamicSvg.vue'
-import InputFoodzUp from '~/components/Inputs/InputFoodzUp.vue'
 import Modal from '~/components/Others/Modal.vue'
 import AuthStore from '~/store/auth'
 import NotificationStore from '~/store/notification'
@@ -73,7 +72,7 @@ Vue.use(VueSocialSharing)
 Vue.use(VueClipboard)
 
 @Component({
-  components: { DynamicSvg, InputFoodzUp, Modal }
+  components: { DynamicSvg, Modal }
 })
 export default class ProfileSponsor extends Vue {
   code: string = AuthStore.user.sponsorCode

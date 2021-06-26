@@ -3,7 +3,7 @@
   <div class="bg-gray-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="flex justify-between items-center py-6">
-        <nuxt-link to="/" class="flex items-center">
+        <nuxt-link to="/commandes" class="flex items-center">
           <div href="#">
             <span class="sr-only">Workflow</span>
             <img
@@ -48,16 +48,18 @@
                 <div :class="{ hidden: !menu }" class="absolute z-10 -ml-4 mt-3 transform px-2 w-screen max-w-md sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2">
                   <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
                     <div class="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
-                      <nuxt-link v-for="(link, index2) in navigation.links" :key="index2" class="flex items-center" :to="link.to">
-                        <DynamicSvg :width="30" class="text-primary" :component-name="link.logo" />
-                        <div class="ml-4">
-                          <p class="text-base font-medium text-gray-900">
-                            {{ link.title }}
-                          </p>
-                          <p class="mt-1 text-sm text-gray-500">
-                            {{ link.description }}
-                          </p>
-                        </div>
+                      <nuxt-link v-for="(link, index2) in navigation.links" :key="index2" :to="link.to">
+                        <button class="flex items-center" @click="menuToggle()">
+                          <DynamicSvg :width="30" class="text-primary" :component-name="link.logo" />
+                          <div class="ml-6 text-left">
+                            <p class="text-base font-medium text-gray-900">
+                              {{ link.title }}
+                            </p>
+                            <p class="mt-1 text-sm text-gray-500">
+                              {{ link.description }}
+                            </p>
+                          </div>
+                        </button>
                       </nuxt-link>
                     </div>
                   </div>

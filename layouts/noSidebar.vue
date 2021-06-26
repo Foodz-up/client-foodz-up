@@ -1,16 +1,6 @@
 <template>
   <div>
-    <div class="mx-6 my-10 custom-layout-height flex justify-center flex-col">
-      <h1 class="font-semibold text-7xl text-medium">
-        Erreur 404
-      </h1>
-      <span class="text-5xl my-3">
-        Nous n'avons pas trouvé la page recherchée
-      </span>
-      <span class="text-xl italic">
-        (Sinon je vends ma PS1 avec 21 jeux)
-      </span>
-    </div>
+    <Nuxt class="my-10 mx-4 custom-layout-height" />
     <ListNotifications class="fixed bottom-0 right-0 z-40" />
   </div>
 </template>
@@ -29,10 +19,22 @@ export default {
 }
 </script>
 
-<style>
-.custom-layout-height{
-  min-height: calc(100vh - 260px)
+<style scoped>
+.auth-container {
+  margin: 0px;
+  background: url('~/assets/img/background.jpg') center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
+
+@media (max-width: 640px) {
+  .auth-container {
+    background: white;
+  }
+}
+</style>
+
+<style>
 
 html {
   font-family:

@@ -70,14 +70,13 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'nuxt-property-decorator'
-import InputFoodzUp from '~/components/Inputs/InputFoodzUp.vue'
 import Modal from '~/components/Others/Modal.vue'
 import AuthStore from '~/store/auth'
 import NotificationStore from '~/store/notification'
 import { IUser } from '~/store/interfaces'
 
 @Component({
-  components: { InputFoodzUp, Modal }
+  components: { Modal }
 })
 export default class FormUpdateUser extends Vue {
     @Prop({ required: true })

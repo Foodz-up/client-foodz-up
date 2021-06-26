@@ -12,6 +12,7 @@ export default {
     async logout () {
       await this.$auth.logout()
       AuthStore.logout()
+      this.$router.push('/auth/connexion')
     }
   }
 }

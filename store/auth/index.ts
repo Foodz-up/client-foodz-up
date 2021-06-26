@@ -44,8 +44,8 @@ class AuthStore extends BaseStoreService<AuthStoreState> {
     return axios().delete('users')
   }
 
-  register (user: IUser) {
-    return axios().post('auth/register', user)
+  register (userRegistration:any) {
+    return axios().post('auth/register', userRegistration)
   }
 
   logout () {

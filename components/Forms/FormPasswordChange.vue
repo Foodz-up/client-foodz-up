@@ -45,12 +45,10 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'nuxt-property-decorator'
-import InputFoodzUp from '~/components/Inputs/InputFoodzUp.vue'
 import AuthStore from '~/store/auth'
 import NotificationStore from '~/store/notification'
 
 @Component({
-  components: { InputFoodzUp }
 })
 export default class FormPasswordChange extends Vue {
   @Prop({ required: true })
