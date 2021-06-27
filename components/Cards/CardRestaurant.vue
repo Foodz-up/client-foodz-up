@@ -16,7 +16,7 @@
         Livraison Gratuite
       </p>
       <p class="text-right text-sm w-full text-primary font-medium">
-        {{ waiting }}
+        Livrais sous : {{ waiting }} min
       </p>
     </div>
   </nuxt-link>

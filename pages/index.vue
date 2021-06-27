@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div class="grid gap-7 sm:grid-cols-2 xl:grid-cols-3 p-4">
-      <RestaurantCard
-        v-for="restaurant in restaurants"
+    <div v-if="storeRestaurants" class="grid gap-7 sm:grid-cols-2 xl:grid-cols-3 p-4">
+      <CardRestaurant
+        v-for="restaurant in storeRestaurants"
         :id="restaurant.id"
         :key="restaurant.id"
         :name="restaurant.name"
@@ -15,23 +15,173 @@
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
-import RestaurantCard from '~/components/Cards/CardRestaurant.vue'
+import CardRestaurant from '~/components/Cards/CardRestaurant.vue'
+import { ETypeRestaurant, IRestaurant } from '~/store/interfaces'
+import RestaurantStore from '~/store/restaurant'
 
 @Component({
-  components: { RestaurantCard }
+  components: { CardRestaurant }
 })
 export default class Home extends Vue {
   modalOpen: boolean = false
 
-  // TODO: need type
-  restaurants: Array<object> = [
-    { id: 1, type: 'Fast food', name: 'Mcdonald', note: 4.5, waiting: '10-20 min' },
-    { id: 2, type: 'Fast food', name: 'KFC', note: 4.2, waiting: '10-30 min' },
-    { id: 3, type: 'Nourriture de confort', name: 'La Boucherie', note: 4.9, waiting: '30 min' },
-    { id: 4, type: 'Pizza', name: 'Le Plaza', note: 4.9, waiting: '30-40 min' },
-    { id: 5, type: 'Fast food', name: 'Dominos', note: 4.3, waiting: '10-20 min' },
-    { id: 6, type: 'Fast food', name: 'Burger King', note: 4.7, waiting: '20-30 min' }
+  restaurants: Array<IRestaurant> = [
+    {
+      id: 1,
+      type: ETypeRestaurant.FAST_FOOD,
+      name: 'Mcdonald',
+      note: 4.5,
+      waiting: 10,
+      articles: [
+        { id: 1, type: 'Entrée', name: 'Foie gras maison', description: 'Servi avec sa confiture de figues', price: 5.20 },
+        { id: 5, type: 'Désert', name: 'Tiramisu', price: 6.30 },
+        { id: 6, type: 'Boisson', name: 'Coca-cola', description: '1.25 L', price: 2.40 },
+        { id: 8, type: 'Plat', name: 'Hamburger savoyard', description: 'Servi avec salade et frites fraîches', price: 18.50 }
+      ],
+      menus: [
+        {
+          id: 1,
+          name: 'Menu best of',
+          description: 'Menu classique',
+          articles: [
+            { id: 6, type: 'Boisson', name: 'Coca-cola', description: '1.25 L', price: 2.40 },
+            { id: 3, type: 'Plat', name: 'Hamburger savoyard', description: 'Servi avec salade et frites fraîches', price: 18.50, tag: 'Nouveau' },
+            { id: 5, type: 'Désert', name: 'Tiramisu', price: 6.30 }
+          ],
+          price: 10
+        },
+        {
+          id: 2,
+          name: 'Menu maxi best of',
+          description: 'Grand menu classique',
+          articles: [
+            { id: 6, type: 'Boisson', name: 'Coca-cola', description: '1.25 L', price: 2.40 },
+            { id: 5, type: 'Désert', name: 'Tiramisu', price: 6.30 }
+          ],
+          price: 13.50
+        },
+        {
+          id: 3,
+          name: 'Menu duo',
+          description: 'Grand menu classique pour deux',
+          articles: [
+            { id: 1, type: 'Entrée', name: 'Foie gras maison', description: 'Servi avec sa confiture de figues', price: 5.20 },
+            { id: 3, type: 'Plat', name: 'Hamburger savoyard', description: 'Servi avec salade et frites fraîches', price: 18.50, tag: 'Nouveau' },
+            { id: 5, type: 'Désert', name: 'Tiramisu', price: 6.30 }
+          ],
+          price: 23
+        }
+      ],
+      picture: 'noshop.jpg'
+    },
+    {
+      id: 2,
+      type: ETypeRestaurant.FAST_FOOD,
+      name: 'KFC',
+      note: 4.2,
+      waiting: 20,
+      articles: [
+        { id: 1, type: 'Entrée', name: 'Foie gras maison', description: 'Servi avec sa confiture de figues', price: 5.20 },
+        { id: 5, type: 'Désert', name: 'Tiramisu', price: 6.30 },
+        { id: 6, type: 'Boisson', name: 'Coca-cola', description: '1.25 L', price: 2.40 },
+        { id: 8, type: 'Plat', name: 'Hamburger savoyard', description: 'Servi avec salade et frites fraîches', price: 18.50 }
+      ],
+      menus: [
+        {
+          id: 1,
+          name: 'Menu best of',
+          description: 'Menu classique',
+          articles: [
+            { id: 6, type: 'Boisson', name: 'Coca-cola', description: '1.25 L', price: 2.40 },
+            { id: 3, type: 'Plat', name: 'Hamburger savoyard', description: 'Servi avec salade et frites fraîches', price: 18.50, tag: 'Nouveau' },
+            { id: 5, type: 'Désert', name: 'Tiramisu', price: 6.30 }
+          ],
+          price: 10
+        },
+        {
+          id: 2,
+          name: 'Menu maxi best of',
+          description: 'Grand menu classique',
+          articles: [
+            { id: 6, type: 'Boisson', name: 'Coca-cola', description: '1.25 L', price: 2.40 },
+            { id: 5, type: 'Désert', name: 'Tiramisu', price: 6.30 }
+          ],
+          price: 13.50
+        },
+        {
+          id: 3,
+          name: 'Menu duo',
+          description: 'Grand menu classique pour deux',
+          articles: [
+            { id: 1, type: 'Entrée', name: 'Foie gras maison', description: 'Servi avec sa confiture de figues', price: 5.20 },
+            { id: 3, type: 'Plat', name: 'Hamburger savoyard', description: 'Servi avec salade et frites fraîches', price: 18.50, tag: 'Nouveau' },
+            { id: 5, type: 'Désert', name: 'Tiramisu', price: 6.30 }
+          ],
+          price: 23
+        }
+      ],
+      picture: 'noshop.jpg'
+    },
+    {
+      id: 3,
+      type: ETypeRestaurant.GASTRO,
+      name: 'La Boucherie',
+      note: 4.9,
+      waiting: 30,
+      articles: [
+        { id: 1, type: 'Entrée', name: 'Foie gras maison', description: 'Servi avec sa confiture de figues', price: 5.20 },
+        { id: 5, type: 'Désert', name: 'Tiramisu', price: 6.30 },
+        { id: 6, type: 'Boisson', name: 'Coca-cola', description: '1.25 L', price: 2.40 },
+        { id: 8, type: 'Plat', name: 'Hamburger savoyard', description: 'Servi avec salade et frites fraîches', price: 18.50 }
+      ],
+      menus: [
+        {
+          id: 1,
+          name: 'Menu best of',
+          description: 'Menu classique',
+          articles: [
+            { id: 6, type: 'Boisson', name: 'Coca-cola', description: '1.25 L', price: 2.40 },
+            { id: 3, type: 'Plat', name: 'Hamburger savoyard', description: 'Servi avec salade et frites fraîches', price: 18.50, tag: 'Nouveau' },
+            { id: 5, type: 'Désert', name: 'Tiramisu', price: 6.30 }
+          ],
+          price: 10
+        },
+        {
+          id: 2,
+          name: 'Menu maxi best of',
+          description: 'Grand menu classique',
+          articles: [
+            { id: 6, type: 'Boisson', name: 'Coca-cola', description: '1.25 L', price: 2.40 },
+            { id: 5, type: 'Désert', name: 'Tiramisu', price: 6.30 }
+          ],
+          price: 13.50
+        },
+        {
+          id: 3,
+          name: 'Menu duo',
+          description: 'Grand menu classique pour deux',
+          articles: [
+            { id: 1, type: 'Entrée', name: 'Foie gras maison', description: 'Servi avec sa confiture de figues', price: 5.20 },
+            { id: 3, type: 'Plat', name: 'Hamburger savoyard', description: 'Servi avec salade et frites fraîches', price: 18.50, tag: 'Nouveau' },
+            { id: 5, type: 'Désert', name: 'Tiramisu', price: 6.30 }
+          ],
+          price: 23
+        }
+      ],
+      picture: 'noshop.jpg'
+    },
+    { id: 4, type: ETypeRestaurant.FAST_FOOD, name: 'Le Plaza', note: 4.9, waiting: 20, picture: 'noshop.jpg' },
+    { id: 5, type: ETypeRestaurant.GASTRO, name: 'Dominos', note: 4.3, waiting: 20, picture: 'noshop.jpg' },
+    { id: 5, type: ETypeRestaurant.GASTRO, name: 'Burger King', note: 4.7, waiting: 40, picture: 'noshop.jpg' }
   ]
+
+  mounted () {
+    RestaurantStore.setRestaurants(this.restaurants)
+  }
+
+  get storeRestaurants () {
+    return RestaurantStore.restaurants
+  }
 }
 </script>
 

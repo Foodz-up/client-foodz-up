@@ -1,7 +1,7 @@
 <template>
-  <div class="flex flex-row-reverse justify-between w-full">
-    <img :src="require(`assets/img/${img}`)" class="w-1/3 ml-3">
-    <div class="w-2/3 grid">
+  <div class="flex flex-col sm:flex-row-reverse justify-between w-full min-h-custom max-w-sm">
+    <img :src="require(`assets/img/${img}`)" class="object-cover w-5/12 ml-3">
+    <div class="w-7/12 grid">
       <div>
         <h3 class="font-bold">
           {{ name }}
@@ -9,20 +9,23 @@
         <p class="text-gray-500 text-sm">
           {{ description }}
         </p>
-        <div class="flex items-center">
-          <p class="py-1 text-sm font-medium mr-2">
-            {{ price }} €
-          </p>
-          <div v-if="menuArticles" class="flex mt-auto">
-            <nuxt-link :to="`/restaurants/${restaurantId}/menus/${id}`" class="w-auto text-sm font-semibold text-white bg-gray-200 px-2 py-1 rounded-full">
-              Voir plus
-            </nuxt-link>
-          </div>
-          <div v-if="tag" class="flex mt-auto">
-            <span class="w-auto text-sm font-semibold text-primary bg-primary-30 px-2 py-1 rounded-full">
-              {{ tag }}
-            </span>
-          </div>
+        <div v-if="menuArticles" class="flex mt-auto">
+          <ul>
+            <li v-for="article in menuArticles" :key="article.id">
+              {{ article.name }}
+            </li>
+          </ul>
+        </div>
+        <p class="py-1 text-sm font-medium mr-2">
+          {{ price }} €
+        </p>
+        <nuxt-link v-if="menuArticles" :to="`/restaurants/${restaurantId}/menus/${id}`" class="w-auto text-sm font-semibold text-gray-500 hover:bg-gray-300 bg-gray-200 px-2 py-1 rounded-full">
+          Voir plus
+        </nuxt-link>
+        <div v-if="tag" class="flex mt-auto">
+          <span class="w-auto text-sm font-semibold text-primary bg-primary-30 px-2 py-1 rounded-full">
+            {{ tag }}
+          </span>
         </div>
       </div>
       <!-- TODO: place to cart at the end -->
@@ -81,5 +84,8 @@ export default class CardArticle extends Vue {
 </script>
 
 <style scoped>
+.min-h-custom{
+  min-height: 200px;
+}
 
 </style>

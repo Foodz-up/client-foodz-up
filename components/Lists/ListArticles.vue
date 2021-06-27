@@ -4,8 +4,8 @@
       <h2 class="text-3xl font-semibold mt-24 mb-8 text-yellow-pastel">
         {{ articleArrayByType[0].type }}
       </h2>
-      <div class="grid gap-7 gap-y-12 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
-        <CardArticle
+      <div class="grid gap-7 gap-y-12 lg:grid-cols-2 2xl:grid-cols-3 3xl:grid-cols-4">
+        <CardItem
           v-for="article in articleArrayByType"
           :id="article.id"
           :key="article.id"
@@ -13,7 +13,6 @@
           :name="article.name"
           :price="article.price"
           :tag="article.tag"
-          :menu-articles="article.menuArticles"
           :restaurant-id="restaurantId"
           class="pb-5 border-gray-100 border-b-2 sm:border-none sm:pb-0"
         />
@@ -24,10 +23,10 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'nuxt-property-decorator'
-import CardArticle from '~/components/Cards/CardArticle.vue'
+import CardItem from '~/components/Cards/CardItem.vue'
 
 @Component({
-  components: { CardArticle }
+  components: { CardItem }
 })
 
 export default class ListArticles extends Vue {
