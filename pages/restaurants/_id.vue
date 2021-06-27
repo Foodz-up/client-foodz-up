@@ -18,22 +18,17 @@
       </h2>
 
       <div class="grid gap-7 gap-y-12 lg:grid-cols-2 2xl:grid-cols-3 3xl:grid-cols-4">
-        <CardItem
+        <CardMenu
           v-for="menu in storeRestaurant.menus"
-          :id="menu.id"
           :key="menu.id"
-          :description="menu.description"
-          :name="menu.name"
-          :price="menu.price"
-          :tag="menu.tag"
-          :menu-articles="menu.articles"
+          :menu="menu"
           :restaurant-id="storeRestaurant.id"
           class="pb-5 border-gray-100 border-b-2 sm:border-none sm:pb-0"
+          @addMenusToCart="addItemsToCart"
         />
       </div>
 
-      <ListArticles :articles="storeRestaurant.articles" :restaurant-id="storeRestaurant.id" />
-
+      <ListArticles :articles="storeRestaurant.articles" :restaurant-id="storeRestaurant.id" @addArticlesToCart="addItemsToCart" />
     </div>
   </div>
 </template>
@@ -43,14 +38,20 @@ import { Component, Vue } from 'nuxt-property-decorator'
 import ListArticles from '~/components/Lists/ListArticles.vue'
 import TableTime from '~/components/Tables/TableTime.vue'
 import RestaurantStore from '~/store/restaurant/'
-import CardItem from '~/components/Cards/CardItem.vue'
+import CartStore from '~/store/cart/'
+import CardMenu from '~/components/Cards/CardMenu.vue'
+import { IArticle, IMenu } from '~/store/interfaces'
 
 @Component({
-  components: { ListArticles, TableTime, CardItem }
+  components: { ListArticles, TableTime, CardMenu }
 })
 export default class SpecificRestaurant extends Vue {
   get storeRestaurant () {
     return RestaurantStore.getRestaurant(parseInt(this.$router.currentRoute.params.id))
+  }
+
+  addItemsToCart (itemAndQuantity: {quantity: number, item:IMenu | IArticle}) {
+    CartStore.addItemsToCart(itemAndQuantity.quantity, itemAndQuantity.item, this.storeRestaurant.id)
   }
 }
 </script>

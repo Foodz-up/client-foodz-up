@@ -72,6 +72,15 @@ export default class Home extends Vue {
           price: 23
         }
       ],
+      timetable: {
+        lundi: { mStart: '11:00', mEnd: '15:00', aStart: '18:00', aEnd: '00:00' },
+        mardi: { mStart: '10:00', mEnd: '15:00', aStart: '18:00', aEnd: '00:00' },
+        mercredi: { mStart: '10:00', mEnd: '15:00', aStart: '18:00', aEnd: '00:00' },
+        jeudi: { mStart: '10:00', mEnd: '15:00', aStart: '18:00', aEnd: '00:00' },
+        vendredi: { mStart: '10:00', mEnd: '15:00', aStart: '18:00', aEnd: '00:00' },
+        samedi: { mStart: '10:00', mEnd: '15:00', aStart: '18:00', aEnd: '00:00' },
+        dimanche: { mStart: '12:00', mEnd: '15:00', aStart: '18:00', aEnd: '00:00' }
+      },
       picture: 'noshop.jpg'
     },
     {
@@ -120,6 +129,15 @@ export default class Home extends Vue {
           price: 23
         }
       ],
+      timetable: {
+        lundi: { mStart: '11:00', mEnd: '15:00', aStart: '18:00', aEnd: '00:00' },
+        mardi: { mStart: '10:00', mEnd: '15:00', aStart: '18:00', aEnd: '00:00' },
+        mercredi: { mStart: '10:00', mEnd: '15:00', aStart: '18:00', aEnd: '00:00' },
+        jeudi: { mStart: '10:00', mEnd: '15:00', aStart: '18:00', aEnd: '00:00' },
+        vendredi: { mStart: '10:00', mEnd: '15:00', aStart: '18:00', aEnd: '00:00' },
+        samedi: { mStart: '10:00', mEnd: '15:00', aStart: '18:00', aEnd: '00:00' },
+        dimanche: { mStart: '12:00', mEnd: '15:00', aStart: '18:00', aEnd: '00:00' }
+      },
       picture: 'noshop.jpg'
     },
     {
@@ -168,11 +186,20 @@ export default class Home extends Vue {
           price: 23
         }
       ],
+      timetable: {
+        lundi: { mStart: '11:00', mEnd: '15:00', aStart: '18:00', aEnd: '00:00' },
+        mardi: { mStart: '10:00', mEnd: '15:00', aStart: '18:00', aEnd: '00:00' },
+        mercredi: { mStart: '10:00', mEnd: '15:00', aStart: '18:00', aEnd: '00:00' },
+        jeudi: { mStart: '10:00', mEnd: '15:00', aStart: '18:00', aEnd: '00:00' },
+        vendredi: { mStart: '10:00', mEnd: '15:00', aStart: '18:00', aEnd: '00:00' },
+        samedi: { mStart: '10:00', mEnd: '15:00', aStart: '18:00', aEnd: '00:00' },
+        dimanche: { mStart: '12:00', mEnd: '15:00', aStart: '18:00', aEnd: '00:00' }
+      },
       picture: 'noshop.jpg'
     },
     { id: 4, type: ETypeRestaurant.FAST_FOOD, name: 'Le Plaza', note: 4.9, waiting: 20, picture: 'noshop.jpg' },
     { id: 5, type: ETypeRestaurant.GASTRO, name: 'Dominos', note: 4.3, waiting: 20, picture: 'noshop.jpg' },
-    { id: 5, type: ETypeRestaurant.GASTRO, name: 'Burger King', note: 4.7, waiting: 40, picture: 'noshop.jpg' }
+    { id: 6, type: ETypeRestaurant.GASTRO, name: 'Burger King', note: 4.7, waiting: 40, picture: 'noshop.jpg' }
   ]
 
   mounted () {

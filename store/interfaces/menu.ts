@@ -6,4 +6,6 @@ export interface IMenu {
     description?: string
     articles: Array<IArticle>
     price: number
+    tag?: string
+    picture?: string
 }

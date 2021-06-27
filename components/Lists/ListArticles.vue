@@ -5,16 +5,13 @@
         {{ articleArrayByType[0].type }}
       </h2>
       <div class="grid gap-7 gap-y-12 lg:grid-cols-2 2xl:grid-cols-3 3xl:grid-cols-4">
-        <CardItem
+        <CardArticle
           v-for="article in articleArrayByType"
-          :id="article.id"
           :key="article.id"
-          :description="article.description"
-          :name="article.name"
-          :price="article.price"
-          :tag="article.tag"
+          :article="article"
           :restaurant-id="restaurantId"
           class="pb-5 border-gray-100 border-b-2 sm:border-none sm:pb-0"
+          @addArticlesToCart="addArticlesToCart"
         />
       </div>
     </div>
@@ -23,16 +20,17 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'nuxt-property-decorator'
-import CardItem from '~/components/Cards/CardItem.vue'
+import CardArticle from '~/components/Cards/CardArticle.vue'
+import { IArticle } from '~/store/interfaces'
 
 @Component({
-  components: { CardItem }
+  components: { CardArticle }
 })
 
 export default class ListArticles extends Vue {
     // TODO: need type
     @Prop({ required: true })
-    articles!: Array<{ id: number, type: string, name: string, description: string, price: number, tag: string, menuArticles: Array<object> }>
+    articles!: Array<IArticle>
 
     @Prop({ required: true })
     restaurantId!: number
@@ -49,6 +47,10 @@ export default class ListArticles extends Vue {
       }, {})
 
       return newObject
+    }
+
+    addArticlesToCart (menuAndQuantity: object) {
+      this.$emit('addArticlesToCart', menuAndQuantity)
     }
 }
 </script>

@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex, { Store } from 'vuex'
 import { RestaurantStoreModule } from './restaurant/module'
+import { CartStoreModule } from './cart/module'
 import { AuthStoreModule } from '~/store/auth/module'
 import { NotificationStoreModule } from '~/store/notification/module'
 import { RootState } from '~/store/root'
@@ -18,7 +19,8 @@ const store: Store<RootState> = new Vuex.Store<RootState>({
   modules: {
     auth: AuthStoreModule,
     notification: NotificationStoreModule,
-    restaurant: RestaurantStoreModule
+    restaurant: RestaurantStoreModule,
+    cart: CartStoreModule
   }
 })
 export default function () {

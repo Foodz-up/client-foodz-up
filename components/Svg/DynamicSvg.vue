@@ -32,7 +32,8 @@ import { Component, Vue, Prop } from 'nuxt-property-decorator'
     biking: () => import('~/components/Svg/SvgBiking.vue'),
     calendar: () => import('~/components/Svg/SvgCalendar.vue'),
     search: () => import('~/components/Svg/SvgSearch.vue'),
-    store: () => import('~/components/Svg/SvgStore.vue')
+    store: () => import('~/components/Svg/SvgStore.vue'),
+    cart: () => import('~/components/Svg/SvgCart.vue')
   }
 })
 export default class DynamicSvg extends Vue {
