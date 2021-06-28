@@ -5,17 +5,17 @@
     <div class="w-1/2 grid">
       <div>
         <h3 class="font-bold text-xl">
-          {{ menu.name }}
+          {{ item.name }}
         </h3>
         <p class="text-gray-500 text-lg">
-          {{ menu.description }}
+          {{ item.description }}
         </p>
-        <div>
+        <div v-if="item.articles">
           <p class="text-lg font-bold text-yellow-pastel mt-5">
             Listes des menus
           </p>
           <ul>
-            <li v-for="article in menu.articles" :key="article.id" class="font-medium text-sm mb-3">
+            <li v-for="article in item.articles" :key="article.id" class="font-medium text-sm mb-3">
               <p>
                 {{ article.type }}
                 <span class="font-bold">•</span>
@@ -29,18 +29,19 @@
         </div>
         <div class="flex items-center">
           <p class="py-1 text-lg font-bold text-primary mr-2">
-            {{ menu.price }} €
+            {{ item.price }} €
           </p>
-          <div v-if="menu.tag" class="flex mt-auto">
+          <div v-if="item.tag" class="flex mt-auto">
             <span class="w-auto text-sm font-semibold text-primary bg-primary-30 px-2 py-1 rounded-full">
-              {{ menu.tag }}
+              {{ item.tag }}
             </span>
           </div>
         </div>
       </div>
       <!-- TODO: place to cart at the end -->
-      <ButtonAddToCart v-if="addToCartButton" class="mt-2 self-end" :item-number="itemNumber" @removeItemNumber="removeItemNumber()" @addItemNumber="addItemNumber()" />
-      <ButtonFoodzUp v-if="moreThanOneAsQuantity" :title="'Ajouter au panier'" class="w-44 bg-primary hover:bg-primary-80 text-white" @buttonClicked="addMenusToCart()" />
+      <ButtonAddToCart v-if="addToCartButton" class="mt-2 self-end" :item-number="itemNumber" @removeItemNumber="decrementItemNumber()" @addItemNumber="incrementItemNumber()" />
+      <ButtonFoodzUp v-if="moreThanOneAsQuantity" :title="'Ajouter au panier'" class="w-44 bg-primary hover:bg-primary-80 text-white" @buttonClicked="addItemToCart()" />
+      <ButtonFoodzUp v-if="removeFromCart" :title="'Supprimer du panier'" class="w-44 bg-red-pastel hover:bg-red-pastel-80 text-white" @buttonClicked="removeItemFromCart()" />
     </div>
   </div>
 </template>
@@ -48,14 +49,14 @@
 <script lang="ts">
 import { Component, Vue, Prop } from 'nuxt-property-decorator'
 import ButtonAddToCart from '~/components/Buttons/ButtonAddToCart.vue'
-import { IMenu } from '~/store/interfaces'
+import { IArticle, IMenu } from '~/store/interfaces'
 
 @Component({
   components: { ButtonAddToCart }
 })
 export default class CardSpecificMenu extends Vue {
     @Prop()
-    menu!: IMenu
+    item!: IMenu | IArticle
 
     @Prop({ required: true })
     restaurantId!: number
@@ -63,16 +64,19 @@ export default class CardSpecificMenu extends Vue {
     @Prop({ default: true })
     addToCartButton!: boolean
 
+    @Prop({ default: false })
+    removeFromCart!: boolean
+
     itemNumber: number = 0
 
     get moreThanOneAsQuantity (): boolean {
       return this.itemNumber > 0
     }
 
-    addMenusToCart () {
+    addItemToCart () {
       this.$emit('addMenusToCart', {
         quantity: this.itemNumber,
-        menu: this.menu
+        item: this.item
       })
       this.itemNumber = 0
     }
@@ -85,14 +89,18 @@ export default class CardSpecificMenu extends Vue {
       this.itemNumber += 1
     }
 
+    removeItemFromCart () {
+      this.$emit('removeItemFromCart')
+    }
+
     get pictureName (): string {
-      return this.menu.picture ? this.menu.picture : 'noarticle.jpg'
+      return this.item.picture ? this.item.picture : 'noarticle.jpg'
     }
 }
 </script>
 
 <style scoped>
-.min-h-custom{
+.min-h-custom {
   min-height: 200px;
 }
 

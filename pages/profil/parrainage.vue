@@ -22,7 +22,7 @@
       :width="20"
     />
     <div class="flex items-center ml-4 mt-2">
-      <button class="flex flex-col items-center mr-2" @click="clickWithoutCode()">
+      <button class="flex flex-col items-center mr-2" @click="clickWithoutCode(1)">
         <DynamicSvg :component-name="'share'" width="18" class="mr-2 text-blue-500" />
         <span>Partager</span>
       </button>
@@ -100,12 +100,16 @@ export default class ProfileSponsor extends Vue {
     })
   }
 
-  clickWithoutCode () {
+  clickWithoutCode (mode: number) {
     if (AuthStore.user.sponsorCode === null) {
       NotificationStore.addNotification({
         message: 'Veuillez générer un code de parrainage avant de pouvoir le copier ou le partager',
         status: 400
       })
+    }
+
+    if (mode === 1) {
+      this.modal = true
     }
   }
 

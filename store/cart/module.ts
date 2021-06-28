@@ -24,6 +24,10 @@ export const CartStoreModule = {
         items = [...items, { id: index, item: payload.item, restaurantId: payload.restaurantId }]
       }
       state.items = [...state.items, ...items]
+    },
+    removeItemsFromCart (state: CartState, idItem:number) {
+      const indexItem = state.items.findIndex(item => item.id === idItem)
+      state.items.splice(indexItem, 1)
     }
   }
 }

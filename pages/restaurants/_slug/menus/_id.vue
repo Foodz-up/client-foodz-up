@@ -5,23 +5,26 @@
     </h1>
     <hr class="mt-4 mb-12">
 
-    <CardSpecificMenu
-      :menu="storeMenuFromRestaurant"
+    <CardItem
+      :item="storeMenuFromRestaurant"
       :restaurant-id="restaurantId"
       class="pb-5 sm:border-none sm:pb-0"
+      @addMenusToCart="addMenusToCart"
     />
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
-import CardSpecificMenu from '~/components/Cards/CardSpecificMenu.vue'
+import CardItem from '~/components/Cards/CardItem.vue'
 import RestaurantStore from '~/store/restaurant'
+import CartStore from '~/store/cart'
+import { IArticle, IMenu } from '~/store/interfaces'
 
 @Component({
-  components: { CardSpecificMenu }
+  components: { CardItem }
 })
-export default class extends Vue {
+export default class SpecificItem extends Vue {
   get storeMenuFromRestaurant () {
     return RestaurantStore.getMenuFromRestaurant(
       parseInt(this.$router.currentRoute.params.id),
@@ -31,6 +34,10 @@ export default class extends Vue {
 
   get restaurantId (): number {
     return parseInt(this.$router.currentRoute.params.slug)
+  }
+
+  addMenusToCart (itemAndQuantity: {quantity: number, item:IMenu | IArticle}) {
+    CartStore.addItemsToCart(itemAndQuantity.quantity, itemAndQuantity.item, this.storeMenuFromRestaurant.restaurantId)
   }
 }
 </script>

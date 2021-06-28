@@ -1,9 +1,9 @@
 <template>
   <div class="flex flex-row justify-between w-full">
-    <img :src="require(`assets/img/${img}`)" class="object-cover w-1/3 mr-4">
+    <img :src="require(`assets/img/${picture}`)" class="object-cover w-1/3 mr-4">
     <div class="w-2/3">
       <h3 class="font-bold text-xl">
-        {{ restaurantName }}
+        {{ restaurant.name }}
       </h3>
       <div class="flex">
         <p class="text-gray-500 text-lg">
@@ -16,19 +16,16 @@
           {{ price }} €
         </p>
       </div>
-      <div class="flex">
+      <div class="flex flex-col">
         <p class="text-lg text-gray-500">
           {{ dateFormat(date) }}
         </p>
-        <span class="mx-1 text-lg font-bold text-gray-500">
-          •
-        </span>
-        <p class="text-lg text-gray-500">
+        <p class="text-lg text-gray-800 font-medium underline">
           {{ status }}
         </p>
       </div>
       <div class="flex mt-2">
-        <nuxt-link v-if="status === 'Passée'" :to="`/restaurants/${restaurantId}`" class="text-lg py-1 px-2 rounded-full font-medium bg-gray-200">
+        <nuxt-link v-if="status === 'Passée'" :to="`/restaurants/${restaurant.id}`" class="text-lg py-1 px-2 rounded-full font-medium bg-gray-200">
           Voir le restaurant
         </nuxt-link>
         <nuxt-link v-else :to="`/commandes/${id}`" class="text-lg py-1 px-2 rounded-full font-medium text-primary bg-primary-15">
@@ -41,6 +38,7 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'nuxt-property-decorator'
+import { IArticle, IMenu, IRestaurant } from '~/store/interfaces'
 
 @Component
 export default class CardOrder extends Vue {
@@ -48,13 +46,13 @@ export default class CardOrder extends Vue {
     id!: number
 
     @Prop({ default: 'Sans nom' })
-    restaurantName!: string
+    restaurant!: IRestaurant
 
     @Prop({ default: Date.now() })
     date!: Date
 
     @Prop({ default: 'noshop.jpg' })
-    img!: string
+    picture!: string
 
     @Prop({ required: true })
     price!: number
@@ -63,7 +61,7 @@ export default class CardOrder extends Vue {
     itemsNumber!: number
 
     @Prop({ required: true })
-    restaurantId!: number
+    items!: Array<IMenu | IArticle>
 
     @Prop()
     status!: 'Passée' | 'En cours'

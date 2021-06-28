@@ -18,5 +18,9 @@ class CartStore extends BaseStoreService<CartState> {
   addItemsToCart (quantity: number, item: IMenu | IArticle, restaurantId: number) {
     this.commit(this.mutations.addItemsToCart, { quantity, item, restaurantId })
   }
+
+  removeItemsFromCart (idItem: number) {
+    this.commit(this.mutations.removeItemsFromCart, idItem)
+  }
 }
 export default new CartStore()

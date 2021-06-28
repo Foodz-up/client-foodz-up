@@ -81,8 +81,11 @@
                   {{ numberItemsInCart }}
                 </span>
               </nuxt-link>
-              <div v-if="cart && oneItemOrMore" class="w-80 bg-gray-200 absolute top-0 left-0 inline-flex px-4 py-2 text-lg font-semibold text-gray-500 transform -translate-x-72 translate-y-5 rounded-lg">
-                <ul>
+              <div v-if="cart && oneItemOrMore" class="w-80 bg-gray-200 absolute top-0 left-0 text-lg font-semibold text-gray-500 transform -translate-x-72 translate-y-5 rounded-lg flex flex-col">
+                <div class="bg-primary text-white">
+                  <span class="text-lg font-medium">Panier</span>
+                </div>
+                <ul class="px-4 py-2">
                   <li v-for="item in itemsInCart" :key="item.id" class="text-left">
                     {{ item.item.name }} - {{ item.item.price }} €
                   </li>

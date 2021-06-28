@@ -9,11 +9,11 @@
           v-for="order in orderArrayByStatus"
           :id="order.id"
           :key="order.id"
-          :restaurant-name="order.restaurantName"
+          :restaurant="order.restaurant"
           :status="order.status"
           :price="order.price"
-          :items-number="order.itemsNumber"
-          :restaurant-id="order.restaurantID"
+          :items-number="orderItemLength(order.items)"
+          :items="order.items"
           class="pb-5 border-gray-100 border-b-2 sm:border-none sm:pb-0 w-auto"
         />
       </div>
@@ -24,6 +24,7 @@
 <script lang="ts">
 import { Component, Vue, Prop } from 'nuxt-property-decorator'
 import CardOrder from '~/components/Cards/CardOrder.vue'
+import { IOrder, IMenu, IArticle } from '~/store/interfaces'
 
 @Component({
   components: { CardOrder }
@@ -32,11 +33,7 @@ import CardOrder from '~/components/Cards/CardOrder.vue'
 export default class ListOrders extends Vue {
     // TODO: need type
     @Prop({ required: true })
-    orders!: Array<
-    { id: number, restaurantName: string, price: number, status: string, date: Date, itemsNumber: number, restaurantId: number }
-    |
-    { id: number, restaurantName: string, price: number, status: string, date: Date, itemsNumber: number, restaurantId: number }
-    >
+    orders!: Array<IOrder>
 
     get splitedByStatus () {
       const newObject = this.orders.reduce(function (obj, value) {
@@ -50,6 +47,10 @@ export default class ListOrders extends Vue {
       }, {})
 
       return newObject
+    }
+
+    orderItemLength (items: Array<IMenu | IArticle>):number {
+      return items.length
     }
 }
 </script>
