@@ -16,7 +16,7 @@ class RestaurantStore extends BaseStoreService<RestaurantState> {
     this.commit(this.mutations.setRestaurants, restaurants)
   }
 
-  getRestaurant (idRestaurant: number) {
+  getRestaurant (idRestaurant: number): IRestaurant | undefined {
     return this.restaurants.find(restaurant => restaurant.id === idRestaurant)
   }
 

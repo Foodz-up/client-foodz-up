@@ -13,9 +13,11 @@ export const OrderStoreModule = {
     setOrders (state: OrderState, orders: Array<IOrder>) {
       state.orders = orders
     },
-
     addOrder (state: OrderState, order: IOrder) {
       state.orders = [...state.orders, order]
+    },
+    addOrders (state: OrderState, orders: Array<IOrder>) {
+      state.orders = [...state.orders, ...orders]
     }
   }
 }

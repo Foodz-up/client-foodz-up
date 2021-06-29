@@ -22,5 +22,16 @@ class OrderStore extends BaseStoreService<OrderState> {
   addOrder (order: IOrder) {
     this.commit(this.mutations.addOrder, order)
   }
+
+  addOrders (orders: Array<IOrder>) {
+    const existing = this.checkIfOrdersAlreadyExist(orders)
+    if (!existing) {
+      this.commit(this.mutations.addOrders, orders)
+    }
+  }
+
+  checkIfOrdersAlreadyExist (orders: Array<IOrder>) {
+    return this.orders.find(order => order.id === orders[0].id)
+  }
 }
 export default new OrderStore()

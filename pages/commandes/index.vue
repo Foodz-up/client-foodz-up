@@ -133,7 +133,7 @@ export default class Orders extends Vue {
     ]
 
     mounted () {
-      OrderStore.setOrders(this.orders)
+      OrderStore.addOrders(this.orders)
     }
 
     get storeOrders ():Array<IOrder> {

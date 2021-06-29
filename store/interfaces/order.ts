@@ -12,10 +12,10 @@ export enum EOrderState {
 export interface IOrder {
     id: number
     price: number
-    items: Array<IArticle | IMenu>
+    items: Array<IArticle | IMenu | null | undefined>
     status: EOrderState
     driver: IUser | null
-    restaurant: IRestaurant
+    restaurant: IRestaurant | undefined
     client: IUser
     // TODO: change to date
     date: number

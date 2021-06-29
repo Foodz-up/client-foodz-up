@@ -11,7 +11,7 @@
         (Sinon je vends ma PS1 avec 21 jeux)
       </span>
     </div>
-    <ListNotifications class="fixed bottom-0 right-0 z-40" />
+    <ListNotifications class="fixed bottom-0 right-0 z-50" />
   </div>
 </template>
 

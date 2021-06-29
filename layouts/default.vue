@@ -3,7 +3,7 @@
     <Sidebar class="z-30 sticky top-0 left-0" />
     <Nuxt class="my-10 custom-layout-height mx-4" />
     <Footer />
-    <ListNotifications class="fixed bottom-0 right-0 z-40" />
+    <ListNotifications class="fixed bottom-0 right-0 z-50" />
   </div>
 </template>
 
