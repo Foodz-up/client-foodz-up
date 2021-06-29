@@ -12,8 +12,10 @@ export class User implements IUser {
     this.refreshTokenExpires = ''
     this.role = 0
     this.sponsorCode = ''
+    this.address = '7 rue Diderot, 62000 Arras'
   }
 
+    address: string
     cityCode: number
     firstName: string
     lastName: string

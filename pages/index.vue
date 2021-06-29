@@ -29,6 +29,7 @@ export default class Home extends Vue {
     {
       id: 1,
       type: ETypeRestaurant.FAST_FOOD,
+      address: '10 rue de la prairie 69532',
       name: 'Mcdonald',
       note: 4.5,
       waiting: 10,
@@ -86,6 +87,7 @@ export default class Home extends Vue {
     {
       id: 2,
       type: ETypeRestaurant.FAST_FOOD,
+      address: '10 rue de la prairie 69532',
       name: 'KFC',
       note: 4.2,
       waiting: 20,
@@ -197,7 +199,8 @@ export default class Home extends Vue {
       },
       picture: 'noshop.jpg'
     },
-    { id: 4, type: ETypeRestaurant.FAST_FOOD, name: 'Le Plaza', note: 4.9, waiting: 20, picture: 'noshop.jpg' },
+    { id: 4, type: ETypeRestaurant.FAST_FOOD,
+    address: '10 rue de la prairie 69532', name: 'Le Plaza', note: 4.9, waiting: 20, picture: 'noshop.jpg' },
     { id: 5, type: ETypeRestaurant.GASTRO, name: 'Dominos', note: 4.3, waiting: 20, picture: 'noshop.jpg' },
     { id: 6, type: ETypeRestaurant.GASTRO, name: 'Burger King', note: 4.7, waiting: 40, picture: 'noshop.jpg' }
   ]

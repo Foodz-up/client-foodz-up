@@ -83,7 +83,7 @@
               </nuxt-link>
               <div v-if="cart && oneItemOrMore" class="w-80 bg-gray-200 absolute top-0 left-0 text-lg font-semibold text-gray-500 transform -translate-x-72 translate-y-5 rounded-lg flex flex-col">
                 <div class="bg-primary text-white">
-                  <span class="text-lg font-medium">Panier</span>
+                  <span class="text-lg font-medium">Panier ({{ orderPrice }} €)</span>
                 </div>
                 <ul class="px-4 py-2">
                   <li v-for="item in itemsInCart" :key="item.id" class="text-left">
@@ -200,6 +200,10 @@ export default class Sidebar extends Vue {
 
       phoneMenuToggle () {
         this.phoneMenu = !this.phoneMenu
+      }
+
+      get orderPrice ():number {
+        return this.itemsInCart.reduce((accumulator, item) => accumulator + item.item.price, 0)
       }
 
       get isConnected ():boolean {

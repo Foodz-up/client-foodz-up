@@ -9,6 +9,7 @@ export interface IUser {
   refreshTokenExpires: string
   role: number
   sponsorCode: string
+  address: string
 }
 
 export interface IToken {

@@ -40,11 +40,12 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'nuxt-property-decorator'
+import { EOrderState } from '~/store/interfaces'
 
 @Component({})
 export default class LoadStatusOrder extends Vue {
     @Prop({ required: true })
-    status!: 'Commandée' | 'Commande en préparation' | 'Commande préparée' | 'En cours de livraison' | 'Livrée'
+    status!: EOrderState
 
     statusIs (status:string) {
       return this.status === status

@@ -91,7 +91,8 @@ export default {
         confirmPassword: 'test',
         firstName: 'Thomas',
         lastName: 'CLEMENT',
-        cityCode: 62000
+        cityCode: 62000,
+        address: '7 rue Diderot, 62000 Arras'
       }
     }
   },
@@ -104,6 +105,8 @@ export default {
           message: response.data.message,
           status: response.status
         })
+        console.log(response)
+
         this.$router.push('/auth/connexion')
       } catch (error) {
         NotificationStore.addNotification({

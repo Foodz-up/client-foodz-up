@@ -16,6 +16,7 @@ export interface IOrder {
     status: EOrderState
     driver: IUser | null
     restaurant: IRestaurant
+    client: IUser
     // TODO: change to date
     date: number
 }

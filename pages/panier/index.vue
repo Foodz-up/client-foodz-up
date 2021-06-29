@@ -1,5 +1,7 @@
 <template>
   <div>
+    <p><span class="font-medium text-lg">Prix de la commande :</span> {{ orderPrice }} €</p>
+
     <div class="grid gap-7 gap-y-12 xl:grid-cols-2 2xl:grid-cols-3 3xl:grid-cols-4">
       <CardItem
         v-for="item in itemsInCart"
@@ -31,6 +33,10 @@ export default class Home extends Vue {
 
   removeItemFromCart (id: number) {
     CartStore.removeItemsFromCart(id)
+  }
+
+  get orderPrice ():number {
+    return this.itemsInCart.reduce((accumulator, item) => accumulator + item.item.price, 0)
   }
 }
 </script>

@@ -40,8 +40,8 @@
       </div>
       <!-- TODO: place to cart at the end -->
       <ButtonAddToCart v-if="addToCartButton" class="mt-2 self-end" :item-number="itemNumber" @removeItemNumber="decrementItemNumber()" @addItemNumber="incrementItemNumber()" />
-      <ButtonFoodzUp v-if="moreThanOneAsQuantity" :title="'Ajouter au panier'" class="w-44 bg-primary hover:bg-primary-80 text-white" @buttonClicked="addItemToCart()" />
-      <ButtonFoodzUp v-if="removeFromCart" :title="'Supprimer du panier'" class="w-44 bg-red-pastel hover:bg-red-pastel-80 text-white" @buttonClicked="removeItemFromCart()" />
+      <ButtonFoodzUp v-if="moreThanOneAsQuantity" :title="'Ajouter au panier'" class="mt-2 w-44 bg-primary hover:bg-primary-80 text-white" @buttonClicked="addItemToCart()" />
+      <ButtonFoodzUp v-if="removeFromCart" :title="'Supprimer du panier'" class="mt-2 w-52 bg-red-pastel hover:bg-red-pastel-80 text-white" @buttonClicked="removeItemFromCart()" />
     </div>
   </div>
 </template>

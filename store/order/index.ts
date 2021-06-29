@@ -11,6 +11,10 @@ class OrderStore extends BaseStoreService<OrderState> {
     return this.read<any>(this.getters.orders)
   }
 
+  getOrder (idOrder: number): IOrder | undefined {
+    return this.orders.find(order => order.id === idOrder)
+  }
+
   setOrders (orders: Array<IOrder>) {
     this.commit(this.mutations.setOrders, orders)
   }
