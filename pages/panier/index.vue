@@ -109,8 +109,6 @@ export default class Home extends Vue {
         date: Date.now()
       })
 
-      console.log({ or: OrderStore.orders })
-
       CartStore.setCart([])
 
       NotificationStore.addNotification({
