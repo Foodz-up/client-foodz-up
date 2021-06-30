@@ -17,7 +17,7 @@ export default {
       AuthStore.logout()
       AuthStore.setToken(null)
       AuthStore.setUser(null)
-      RestaurantStore.setRestaurants(null)
+      RestaurantStore.setRestaurants([])
       OrderStore.setOrders([])
       this.$router.push('/auth/connexion')
       NotificationStore.addNotification({
