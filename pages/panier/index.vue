@@ -98,7 +98,7 @@ export default class Home extends Vue {
 
     if (isEqual(this.card, this.realCard)) {
       OrderStore.addOrder({
-        id: OrderStore.orders.length,
+        id: 0,
         price: this.orderPrice,
         items: this.itemsArticleAndMenuFromCart,
         status: EOrderState.ORDERED,
@@ -111,10 +111,7 @@ export default class Home extends Vue {
 
       CartStore.setCart([])
 
-      NotificationStore.addNotification({
-        message: 'La commande a été réalisée',
-        status: 200
-      })
+      this.toggleModal()
     } else {
       NotificationStore.addNotification({
         message: 'Les informations de la carte bancaire ne sont pas valides',

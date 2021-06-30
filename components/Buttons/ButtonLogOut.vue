@@ -7,17 +7,23 @@
 <script>
 import AuthStore from '~/store/auth'
 import NotificationStore from '~/store/notification'
+import RestaurantStore from '~/store/restaurant'
+import OrderStore from '~/store/order'
 
 export default {
   methods: {
     async logout () {
       await this.$auth.logout()
       AuthStore.logout()
+      AuthStore.setToken(null)
+      AuthStore.setUser(null)
+      RestaurantStore.setRestaurants(null)
+      OrderStore.setOrders([])
       this.$router.push('/auth/connexion')
       NotificationStore.addNotification({
-          message: 'Vous êtes maintenant déconnecté',
-          status: 200
-        })
+        message: 'Vous êtes maintenant déconnecté',
+        status: 200
+      })
     }
   }
 }
