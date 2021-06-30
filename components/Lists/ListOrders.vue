@@ -7,14 +7,14 @@
       <div class="grid gap-7 gap-y-12 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
         <CardOrder
           v-for="order in orderArrayByStatus"
-          :id="order.id"
-          :key="order.id"
+          :id="order._id"
+          :key="order._id"
           :restaurant="order.restaurant"
           :status="order.status"
           :price="order.price"
           :items-number="orderItemLength(order.items)"
           :items="order.items"
-          class="pb-5 border-gray-100 border-b-2 sm:border-none sm:pb-0 w-auto shadow-xl bg-gray-100 rounded-xl"
+          class="pb-5 border-gray-100 border-b-2 sm:border-none sm:pb-0 w-auto shadow-xl bg-gray-50 rounded-xl"
         />
       </div>
     </div>

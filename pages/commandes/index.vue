@@ -14,9 +14,8 @@
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 import ListOrders from '~/components/Lists/ListOrders.vue'
-import { ETypeRestaurant, EOrderState, IOrder } from '~/store/interfaces'
+import { IOrder } from '~/store/interfaces'
 import OrderStore from '~/store/order'
-import AuthStore from '~/store/auth'
 
 @Component({
   components: { ListOrders }

@@ -5,14 +5,11 @@
       <h3 class="font-bold text-xl">
         {{ restaurant.name }}
       </h3>
-      <div class="flex">
+      <div class="flex flex-col">
         <p class="text-gray-500 text-lg">
           {{ itemsNumber }} élément(s)
         </p>
-        <span class="mx-1 text-lg font-bold text-gray-500">
-          •
-        </span>
-        <p class="text-lg text-gray-500 font-medium">
+        <p class="text-lg text-gray-500 font-semibold">
           {{ price }} €
         </p>
       </div>
@@ -43,7 +40,7 @@ import { IArticle, IMenu, IRestaurant } from '~/store/interfaces'
 @Component
 export default class CardOrder extends Vue {
     @Prop({ required: true })
-    id!: number
+    id!: object
 
     @Prop({ default: 'Sans nom' })
     restaurant!: IRestaurant

@@ -23,7 +23,7 @@
           :key="menu.id"
           :menu="menu"
           :restaurant-id="storeRestaurant._id"
-          class="pb-5 border-gray-100 border-b-2 sm:border-none sm:pb-0 shadow-xl bg-gray-100 rounded-xl"
+          class="pb-5 border-gray-100 border-b-2 sm:border-none sm:pb-0 shadow-xl bg-gray-50 rounded-xl"
           @addMenusToCart="addItemsToCart"
         />
       </div>

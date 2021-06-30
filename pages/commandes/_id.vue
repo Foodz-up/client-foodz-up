@@ -5,29 +5,48 @@
     </h1>
     <LoadStatusOrder :status="order.status" />
 
-    <div class="mt-10">
-      <h2 class="text-2xl">
-        Rappel de votre commande :
+    <div class="flex flex-col align-start p-6 bg-gray-50">
+      <h1 class="text-2xl border-b-2 pb-5 border-black">
+        #ref:{{ order._id }}
+      </h1>
+      <p class="text-sm font-thin mb-5 mt-2">
+        Commandé le  {{ dateFormat(order.date) }}
+      </p>
+      <div class="mb-5">
+        <h2 class="text-xl pb-3">
+          Adresse
+        </h2>
+        <p class="text-sm font-thin">
+          <span class="font-medium">Restaurant :</span> {{ order.restaurant.address }}
+        </p>
+        <p class="text-sm font-thin">
+          <span class="font-medium">Client :</span> {{ order.client.address }}
+        </p>
+      </div>
+      <h2 class="text-xl pb-3">
+        Liste d'articles
       </h2>
-      <p class="text-xl text-primary font-medium my-4">
-        <nuxt-link :to="`/restaurants/${order.restaurant._id}`">
-          {{ order.restaurant.name }} ({{ order.restaurant.address }})
-        </nuxt-link> -> {{ order.client.address }}
-      </p>
-      <p><span class="font-medium text-lg">Nombre d'articles :</span> {{ order.items.length }}</p>
-      <p><span class="font-medium text-lg">Prix de la commande :</span> {{ order.price }} €</p>
-      <p class="font-medium text-lg">
-        Liste d'articles :
-      </p>
-      <ul class="ml-3">
-        <li v-for="(item,index) in order.items" :key="index" class="flex items-center">
-          <span class="mx-1 font-bold text-gray-500 text-lg">•</span>
-          <p>{{ item.name }} :</p>
-          <p class="font-semibold text-gray-500 text-sm ml-1">
-            {{ item.price }} €
+      <div class="grid gap-4 grid-cols-1">
+        <ul>
+          <li v-for="item in order.items" :key="item.id" class="grid gap-5 grid-cols-2">
+            <p class="text-sm">
+              {{ item.name }}
+            </p>
+            <p class="text-sm font-thin">
+              {{ item.price }} €
+            </p>
+          </li>
+        </ul>
+
+        <div class="pt-2 grid gap-5 grid-cols-2 border-t-2">
+          <p class="text-sm">
+            Total de la commande
           </p>
-        </li>
-      </ul>
+          <p class="text-sm font-thin">
+            {{ order.price }} €
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -43,7 +62,7 @@ import OrderStore from '~/store/order'
   components: { ListOrders, LoadStatusOrder }
 })
 export default class Orders extends Vue {
-    order: IOrder | undefined = OrderStore.getOrder(parseInt(this.$router.currentRoute.params.id))
+    order: IOrder | undefined = OrderStore.getOrder(this.$router.currentRoute.params.id)
 
     currentLocation: {} = {}
     circleOptions: {} = {}
@@ -92,7 +111,6 @@ export default class Orders extends Vue {
       if (this.order !== undefined) { return this.order.status === EOrderState.ORDER_IN_PROGRESS }
       return false
     }
-
 }
 </script>
 

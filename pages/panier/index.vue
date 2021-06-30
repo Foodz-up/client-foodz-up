@@ -18,7 +18,7 @@
         :restaurant-id="item.restaurantId"
         :add-to-cart-button="false"
         :remove-from-cart="true"
-        class="pb-5 sm:border-none sm:pl-5 sm:pb-0 mb-3 shadow-xl bg-gray-100 rounded-xl"
+        class="pb-5 sm:border-none sm:pl-5 sm:pb-0 mb-3 shadow-xl bg-gray-50 rounded-xl"
         @removeItemFromCart="removeItemFromCart(item.id)"
       />
     </div>

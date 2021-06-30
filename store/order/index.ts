@@ -13,8 +13,8 @@ class OrderStore extends BaseStoreService<OrderState> {
     return this.read<any>(this.getters.orders)
   }
 
-  getOrder (idOrder: number): IOrder | undefined {
-    return this.orders.find(order => order.id === idOrder)
+  getOrder (idOrder: object): IOrder | undefined {
+    return this.orders.find(order => order._id === idOrder)
   }
 
   async getOrders () {
