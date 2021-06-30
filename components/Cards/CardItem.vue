@@ -1,9 +1,9 @@
 
 <template>
-  <div class="flex flex-col sm:flex-row-reverse justify-center items-center w-full">
-    <img :src="require(`assets/img/${pictureName}`)" class="sm:max-h-96 w-auto sm:ml-3 mb-5 sm:mb-0">
-    <div class="w-1/2 grid">
-      <div>
+  <div class="flex flex-col sm:flex-row-reverse justify-center sm:justify-between items-center w-full shadow-xl bg-gray-100">
+    <img :src="require(`assets/img/${pictureName}`)" class="sm:max-h-96 w-auto sm:ml-3 mb-5 sm: sm:mb-0 sm:rounded-r-lg">
+    <div class="w-1/2 grid h-full p-4">
+      <div class="flex flex-col justify-end">
         <h3 class="font-bold text-xl">
           {{ item.name }}
         </h3>
@@ -14,14 +14,14 @@
           <p class="text-lg font-bold text-yellow-pastel mt-5">
             Listes des menus
           </p>
-          <ul>
-            <li v-for="article in item.articles" :key="article.id" class="font-medium text-sm mb-3">
+          <ul class="pl-2">
+            <li v-for="article in item.articles" :key="article.id" class="font-medium text-sm mb23">
               <p>
                 {{ article.type }}
                 <span class="font-bold">•</span>
                 {{ article.name }}
               </p>
-              <p class="text-gray-500 font-normal">
+              <p v-if="!removeFromCart" class="text-gray-500 font-normal">
                 {{ article.description }}
               </p>
             </li>
@@ -41,7 +41,9 @@
       <!-- TODO: place to cart at the end -->
       <ButtonAddToCart v-if="addToCartButton" class="mt-2 self-end" :item-number="itemNumber" @removeItemNumber="decrementItemNumber()" @addItemNumber="incrementItemNumber()" />
       <ButtonFoodzUp v-if="moreThanOneAsQuantity" :title="'Ajouter au panier'" class="mt-2 w-44 bg-primary hover:bg-primary-80 text-white" @buttonClicked="addItemToCart()" />
-      <ButtonFoodzUp v-if="removeFromCart" :title="'Supprimer du panier'" class="mt-2 w-52 bg-red-pastel hover:bg-red-pastel-80 text-white" @buttonClicked="removeItemFromCart()" />
+      <div class="mt-auto">
+        <ButtonFoodzUp v-if="removeFromCart" :title="'Supprimer du panier'" class="h-10 sm:mb-4 mt-2 w-52 bg-red-pastel hover:bg-red-pastel-80 text-white" @buttonClicked="removeItemFromCart()" />
+      </div>
     </div>
   </div>
 </template>

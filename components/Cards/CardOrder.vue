@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-row justify-between w-full">
     <img :src="require(`assets/img/${picture}`)" class="object-cover w-1/3 mr-4">
-    <div class="w-2/3">
+    <div class="w-2/3 py-4">
       <h3 class="font-bold text-xl">
         {{ restaurant.name }}
       </h3>

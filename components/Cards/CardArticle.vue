@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col sm:flex-row-reverse justify-between w-full min-h-custom max-w-sm">
-    <img :src="require(`assets/img/${pictureName}`)" class="object-cover w-5/12 ml-3">
-    <div class="w-7/12 grid">
+    <img :src="require(`assets/img/${pictureName}`)" class="object-cover w-5/12 ml-3 rounded-r-lg">
+    <div class="w-7/12 grid p-4">
       <div>
         <h3 class="font-bold">
           {{ article.name }}

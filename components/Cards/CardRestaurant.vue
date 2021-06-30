@@ -1,7 +1,7 @@
 <template>
   <nuxt-link :to="`/restaurants/${_id}`" class="w-full">
-    <img :src="require(`assets/img/${img}`)" class="w-full">
-    <div class="flex justify-between mt-2">
+    <img :src="require(`assets/img/${img}`)" class="w-full rounded-t-lg">
+    <div class="flex justify-between mt-2 p-2">
       <h2 class="text-left font-bold">
         {{ name }}
       </h2>
@@ -11,11 +11,11 @@
         </span>
       </div>
     </div>
-    <div class="flex justify-between">
+    <div class="flex justify-between p-2">
       <p class="text-left text-sm w-full text-gray-500">
         Livraison Gratuite
       </p>
-      <p class="text-right text-sm w-full text-primary font-medium">
+      <p class="text-right text-sm w-full text-primary font-semibold">
         Livrais sous : {{ waiting }} min
       </p>
     </div>

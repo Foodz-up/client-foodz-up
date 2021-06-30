@@ -10,7 +10,7 @@
           :key="article.id"
           :article="article"
           :restaurant-id="restaurantId"
-          class="pb-5 border-gray-100 border-b-2 sm:border-none sm:pb-0"
+          class="pb-5 border-gray-100 border-b-2 sm:border-none sm:pb-0 shadow-xl bg-gray-100 rounded-xl"
           @addArticlesToCart="addArticlesToCart"
         />
       </div>

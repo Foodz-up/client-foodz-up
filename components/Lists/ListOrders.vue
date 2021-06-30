@@ -14,7 +14,7 @@
           :price="order.price"
           :items-number="orderItemLength(order.items)"
           :items="order.items"
-          class="pb-5 border-gray-100 border-b-2 sm:border-none sm:pb-0 w-auto"
+          class="pb-5 border-gray-100 border-b-2 sm:border-none sm:pb-0 w-auto shadow-xl bg-gray-100 rounded-xl"
         />
       </div>
     </div>

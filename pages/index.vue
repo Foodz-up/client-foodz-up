@@ -4,6 +4,7 @@
       <CardRestaurant
         v-for="restaurant in storeRestaurants"
         :key="restaurant._id"
+        class="shadow-xl bg-gray-100 rounded-xl"
         :_id="restaurant._id"
         :name="restaurant.name"
         :note="restaurant.note"

@@ -200,7 +200,7 @@ export default class Sidebar extends Vue {
       }
 
       get orderPrice ():number {
-        return this.itemsInCart.reduce((accumulator, item) => accumulator + item.item.price, 0)
+        return this.itemsInCart.reduce((accumulator, item) => accumulator + parseInt(item.item.price), 0)
       }
 
       get isConnected ():boolean {

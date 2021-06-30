@@ -1,14 +1,16 @@
 <template>
   <div>
-    <div class="flex items-center mb-4">
-      <p class="mr-4">
-        <span class="font-medium text-lg">Prix de la commande :</span> {{ orderPrice }} €
+    <div class="flex flex-col md:flex-row items-center justify-between mb-16">
+      <p class="mr-4 text-lg mb-2 md:mb-0">
+        <span class="font-medium text-xl">Prix de la commande :</span> {{ orderPrice }} €
       </p>
-      <ButtonFoodzUp v-if="!emptyItemsInCart" :title="'Vider le panier'" class="bg-red-pastel hover:bg-red-pastel-80 text-white" @buttonClicked="clearCart()" />
-      <ButtonFoodzUp v-if="!emptyItemsInCart" :title="'Passer la commande'" class="bg-primary hover:bg-primary-80 text-white" @buttonClicked="toggleModal()" />
+      <div>
+        <ButtonFoodzUp v-if="!emptyItemsInCart" :title="'Vider le panier'" class="mr-2" @buttonClicked="clearCart()" />
+        <ButtonFoodzUp v-if="!emptyItemsInCart" :title="'Passer commande'" class="bg-primary hover:bg-primary-80 text-white" @buttonClicked="toggleModal()" />
+      </div>
     </div>
 
-    <div class="grid gap-7 gap-y-12 xl:grid-cols-2 2xl:grid-cols-3 3xl:grid-cols-4">
+    <div class="grid gap-7 gap-y-12 xl:grid-cols-2 3xl:grid-cols-3 5xl:grid-cols-4">
       <CardItem
         v-for="item in itemsInCart"
         :key="item.id"
@@ -16,7 +18,7 @@
         :restaurant-id="item.restaurantId"
         :add-to-cart-button="false"
         :remove-from-cart="true"
-        class="pb-5 sm:border-none sm:pb-0 mb-3"
+        class="pb-5 sm:border-none sm:pl-5 sm:pb-0 mb-3 shadow-xl bg-gray-100 rounded-xl"
         @removeItemFromCart="removeItemFromCart(item.id)"
       />
     </div>
@@ -121,7 +123,7 @@ export default class Home extends Vue {
   }
 
   get orderPrice ():number {
-    return this.itemsInCart.reduce((accumulator, item) => accumulator + item.item.price, 0)
+    return this.itemsInCart.reduce((accumulator, item) => accumulator + parseInt(item.item.price), 0)
   }
 }
 </script>

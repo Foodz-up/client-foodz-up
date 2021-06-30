@@ -1,8 +1,8 @@
 
 <template>
   <div class="flex flex-col sm:flex-row-reverse justify-between w-full min-h-custom max-w-sm">
-    <img :src="require(`assets/img/${pictureName}`)" class="object-cover w-5/12 ml-3">
-    <div class="w-7/12 grid">
+    <img :src="require(`assets/img/${pictureName}`)" class="object-cover w-5/12 ml-3 rounded-r-lg">
+    <div class="w-7/12 grid p-4">
       <div>
         <h3 class="font-bold">
           {{ menu.name }}
@@ -17,7 +17,7 @@
             </li>
           </ul>
           <nuxt-link :to="`/restaurants/${restaurantId}/menus/${menu.id}`">
-            <ButtonFoodzUp :title="'Voir plus'" class="bg-gray-200 hover:bg-gray-300 text-gray-500" />
+            <ButtonFoodzUp :title="'Voir plus'" class="my-2 bg-gray-200 hover:bg-gray-300 text-gray-500" />
           </nuxt-link>
         </div>
         <p class="py-1 text-sm font-medium mr-2">
