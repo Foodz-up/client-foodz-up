@@ -1,43 +1,16 @@
 <template>
-  <div class="p-4">
+  <div v-if="order" class="p-4">
     <h1 class="mt-4 mb-10 text-4xl text-start">
       <span class="font-semibold">{{ order.status }}</span> : Commande du {{ dateFormat(order.date) }}
     </h1>
     <LoadStatusOrder :status="order.status" />
-
-    <GMap
-      v-if="isCurrentlyDelivering"
-      ref="gMap"
-      class="mt-12"
-      language="en"
-      :cluster="{options: {styles: clusterStyle}}"
-      :center="{lat: locations[0].lat, lng: locations[0].lng}"
-      :options="{fullscreenControl: false, styles: mapStyle}"
-      :zoom="6"
-    >
-      <GMapMarker
-        v-for="location in locations"
-        :key="location.id"
-        :position="{lat: location.lat, lng: location.lng}"
-        :options="{icon: location === currentLocation ? pins.selected : pins.notSelected}"
-        @click="currentLocation = location"
-      >
-        <GMapInfoWindow :options="{maxWidth: 200}">
-          <code>
-            lat: {{ location.lat }},
-            lng: {{ location.lng }}
-          </code>
-        </GMapInfoWindow>
-      </GMapMarker>
-      <GMapCircle :options="circleOptions" />
-    </GMap>
 
     <div class="mt-10">
       <h2 class="text-2xl">
         Rappel de votre commande :
       </h2>
       <p class="text-xl text-primary font-medium my-4">
-        <nuxt-link :to="`/restaurants/${order.restaurant.id}`">
+        <nuxt-link :to="`/restaurants/${order.restaurant._id}`">
           {{ order.restaurant.name }} ({{ order.restaurant.address }})
         </nuxt-link> -> {{ order.client.address }}
       </p>
@@ -47,7 +20,7 @@
         Liste d'articles :
       </p>
       <ul class="ml-3">
-        <li v-for="item in order.items" :key="item.id" class="flex items-center">
+        <li v-for="(item,index) in order.items" :key="index" class="flex items-center">
           <span class="mx-1 font-bold text-gray-500 text-lg">•</span>
           <p>{{ item.name }} :</p>
           <p class="font-semibold text-gray-500 text-sm ml-1">
@@ -119,6 +92,7 @@ export default class Orders extends Vue {
       if (this.order !== undefined) { return this.order.status === EOrderState.ORDER_IN_PROGRESS }
       return false
     }
+
 }
 </script>
 

@@ -22,14 +22,11 @@ class OrderStore extends BaseStoreService<OrderState> {
       const orders = await axios().get('/orders/me')
 
       if (orders.status === 200) {
-        console.log({ orders })
         if (orders.data.orders.length > 0) {
           this.addOrders(orders.data.orders)
         }
       }
     } catch (error: any) {
-      console.log({ error })
-
       NotificationStore.addNotification({ message: error.response.data.message, status: error.response.status })
     }
   }
@@ -47,13 +44,10 @@ class OrderStore extends BaseStoreService<OrderState> {
       order.id = newId
       const newOrder = await axios().post('/orders/me', order)
       if (newOrder.status === 200) {
-        console.log({ newOrder })
         this.commit(this.mutations.addOrder, newOrder.data.order)
         NotificationStore.addNotification({ message: newOrder.data.message, status: newOrder.status })
       }
     } catch (error: any) {
-      console.log({ error })
-
       NotificationStore.addNotification({ message: error.response.data.message, status: error.response.status })
     }
   }

@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link :to="`/restaurants/${id}`" class="w-full">
+  <nuxt-link :to="`/restaurants/${_id}`" class="w-full">
     <img :src="require(`assets/img/${img}`)" class="w-full">
     <div class="flex justify-between mt-2">
       <h2 class="text-left font-bold">
@@ -28,7 +28,7 @@ import { Component, Vue, Prop } from 'nuxt-property-decorator'
 @Component
 export default class CardRestaurant extends Vue {
     @Prop({ required: true })
-    id!: number
+    _id!: string
 
     @Prop({ default: 'Sans nom' })
     name!: string

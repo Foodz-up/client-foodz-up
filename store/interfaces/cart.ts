@@ -1,7 +1,7 @@
-import { IMenu, IArticle } from '~/store/interfaces'
+import { IMenu, IArticle, IRestaurant } from '~/store/interfaces'
 
 export interface ICart {
     id: number
     item?: IArticle | IMenu | null
-    restaurantId: number
+    restaurant: IRestaurant | undefined
 }

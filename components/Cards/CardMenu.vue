@@ -49,7 +49,7 @@ export default class CardMenu extends Vue {
     menu!: IMenu
 
     @Prop({ required: true })
-    restaurantId!: number
+    restaurantId!: string
 
     @Prop({ default: true })
     addToCartButton!: boolean

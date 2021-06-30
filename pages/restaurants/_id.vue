@@ -1,6 +1,6 @@
 <template>
   <div>
-    <img class="w-full h-56 object-cover" :src="require(`assets/img/${storeRestaurant.picture}`)">
+    <img v-if="storeRestaurant" class="w-full h-56 object-cover" :src="require(`assets/img/${restaurantPicture}`)">
     <div class="mx-4">
       <div class="mt-4">
         <h1 class="text-4xl font-bold">
@@ -22,7 +22,7 @@
           v-for="menu in storeRestaurant.menus"
           :key="menu.id"
           :menu="menu"
-          :restaurant-id="storeRestaurant.id"
+          :restaurant-id="storeRestaurant._id"
           class="pb-5 border-gray-100 border-b-2 sm:border-none sm:pb-0"
           @addMenusToCart="addItemsToCart"
         />
@@ -40,18 +40,26 @@ import TableTime from '~/components/Tables/TableTime.vue'
 import RestaurantStore from '~/store/restaurant/'
 import CartStore from '~/store/cart/'
 import CardMenu from '~/components/Cards/CardMenu.vue'
-import { IArticle, IMenu } from '~/store/interfaces'
+import { IArticle, IMenu, IRestaurant } from '~/store/interfaces'
 
 @Component({
   components: { ListArticles, TableTime, CardMenu }
 })
 export default class SpecificRestaurant extends Vue {
   get storeRestaurant () {
-    return RestaurantStore.getRestaurant(parseInt(this.$router.currentRoute.params.id))
+    return RestaurantStore.getRestaurant(this.$router.currentRoute.params.id)
+  }
+
+  get restaurantPicture () {
+    return this.storeRestaurant.picture ? this.storeRestaurant.picture : 'noshop.jpg'
   }
 
   addItemsToCart (itemAndQuantity: {quantity: number, item:IMenu | IArticle}) {
-    CartStore.addItemsToCart(itemAndQuantity.quantity, itemAndQuantity.item, this.storeRestaurant.id)
+    CartStore.addItemsToCart(itemAndQuantity.quantity, itemAndQuantity.item, this.getRestaurant(this.$router.currentRoute.params.id))
+  }
+
+  getRestaurant (_id: string): IRestaurant | undefined {
+    return RestaurantStore.getRestaurant(_id)
   }
 }
 </script>

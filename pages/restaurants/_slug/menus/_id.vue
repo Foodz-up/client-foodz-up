@@ -19,7 +19,7 @@ import { Component, Vue } from 'nuxt-property-decorator'
 import CardItem from '~/components/Cards/CardItem.vue'
 import RestaurantStore from '~/store/restaurant'
 import CartStore from '~/store/cart'
-import { IArticle, IMenu } from '~/store/interfaces'
+import { IArticle, IMenu, IRestaurant } from '~/store/interfaces'
 
 @Component({
   components: { CardItem }
@@ -28,7 +28,7 @@ export default class SpecificItem extends Vue {
   get storeMenuFromRestaurant () {
     return RestaurantStore.getMenuFromRestaurant(
       parseInt(this.$router.currentRoute.params.id),
-      parseInt(this.$router.currentRoute.params.slug)
+      this.$router.currentRoute.params.slug
     )
   }
 
@@ -37,7 +37,11 @@ export default class SpecificItem extends Vue {
   }
 
   addMenusToCart (itemAndQuantity: {quantity: number, item:IMenu | IArticle}) {
-    CartStore.addItemsToCart(itemAndQuantity.quantity, itemAndQuantity.item, this.storeMenuFromRestaurant.restaurantId)
+    CartStore.addItemsToCart(itemAndQuantity.quantity, itemAndQuantity.item, this.getRestaurant(this.$router.currentRoute.params.slug))
+  }
+
+  getRestaurant (_id: string): IRestaurant | undefined {
+    return RestaurantStore.getRestaurant(_id)
   }
 }
 </script>

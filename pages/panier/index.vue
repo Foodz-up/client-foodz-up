@@ -78,7 +78,7 @@ export default class Home extends Vue {
   }
 
   getRestaurant (): IRestaurant | undefined {
-    return RestaurantStore.getRestaurant(this.itemsInCart[0].restaurantId)
+    return RestaurantStore.getRestaurant(this.itemsInCart[0].restaurant._id)
   }
 
   clearCart () {

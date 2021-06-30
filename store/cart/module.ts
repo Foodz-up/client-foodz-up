@@ -1,5 +1,5 @@
 import { CartState } from '~/store/cart/state'
-import { IArticle, ICart, IMenu } from '~/store/interfaces'
+import { IArticle, ICart, IMenu, IRestaurant } from '~/store/interfaces'
 
 export const CartStoreModule = {
   namespaced: false,
@@ -13,7 +13,7 @@ export const CartStoreModule = {
     setCart (state: CartState, items: Array<ICart>) {
       state.items = items
     },
-    addItemsToCart (state: CartState, payload: { quantity: number, item: IMenu | IArticle, restaurantId: number}) {
+    addItemsToCart (state: CartState, payload: { quantity: number, item: IMenu | IArticle, restaurant: IRestaurant}) {
       let items: Array<ICart> = []
       let id = 0
       if (state.items[0]) {
@@ -21,7 +21,7 @@ export const CartStoreModule = {
       }
 
       for (let index = id; index < id + payload.quantity; index++) {
-        items = [...items, { id: index, item: payload.item, restaurantId: payload.restaurantId }]
+        items = [...items, { id: index, item: payload.item, restaurant: payload.restaurant }]
       }
       state.items = [...state.items, ...items]
     },
