@@ -33,7 +33,7 @@
       <div class="bg-red-pastel h-6 w-1/4 mr-2" />
       <div class="bg-yellow-pastel h-6 w-1/4 mr-2" />
       <div class="bg-blue-pastel h-6 w-1/4 mr-2" />
-      <div class="bg-primary h-6 w-1/4" />
+      <div class="bg-green-pastel h-6 w-1/4" />
     </div>
   </div>
 </template>
