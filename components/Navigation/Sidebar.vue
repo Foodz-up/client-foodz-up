@@ -68,7 +68,7 @@
         </nav>
         <div class="hidden md:flex items-center">
           <div v-if="isConnected" class="flex items-center">
-            <button class="relative inline-block" @mouseover="cartToggle()" @mouseleave="cartToggle()">
+            <button class="relative inline-block" @mouseover="cartToggle()" @mouseout="cartToggle()">
               <nuxt-link to="/panier">
                 <DynamicSvg :width="20" class="text-primary px-6 py-2" :component-name="'cart'" />
 
