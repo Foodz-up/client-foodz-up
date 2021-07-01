@@ -108,7 +108,8 @@ export default class Home extends Vue {
         restaurant: this.getRestaurant(),
         client: AuthStore.user,
         // TODO: change to date
-        date: Date.now()
+        date: Date.now(),
+        distance: 11.5
       })
 
       CartStore.setCart([])
