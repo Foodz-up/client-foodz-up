@@ -4,19 +4,14 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="flex justify-between items-center py-6">
         <nuxt-link to="/" class="flex items-center">
-          <div href="#">
             <span class="sr-only">Workflow</span>
             <img
               class="h-8 w-auto sm:h-10"
               src="~/assets/Logo.png"
               alt=""
             >
-          </div>
           <div class="font-bold text-primary text-2xl mx-2">
             Foodz-up
-          </div>
-          <div v-if="isConnected">
-            {{ $auth.user.id }}
           </div>
         </nuxt-link>
         <div class="-mr-2 -my-2 md:hidden">
@@ -73,7 +68,7 @@
         </nav>
         <div class="hidden md:flex items-center">
           <div v-if="isConnected" class="flex items-center">
-            <button class="relative inline-block" @mouseover="cartToggle()" @mouseleave="cartToggle()">
+            <button class="relative inline-block" @mouseover="cartToggle()" @mouseout="cartToggle()">
               <nuxt-link to="/panier">
                 <DynamicSvg :width="20" class="text-primary px-6 py-2" :component-name="'cart'" />
 
