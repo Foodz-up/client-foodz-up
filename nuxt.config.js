@@ -16,6 +16,10 @@ export default {
   css: [
   ],
 
+  server: {
+    port: 3000 // default: 3000
+  },
+
   router: {
     middleware: ['auth']
   },
