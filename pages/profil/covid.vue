@@ -4,6 +4,8 @@
       Covid-19
     </h1>
 
+    <ButtonAddToCart :item-number="itemTest" @addItemNumber="incrementItem()" @removeItemNumber="decrementItem()" />
+
     <hr class="mt-4 mb-12">
     <LoremFoodzUp />
   </div>
@@ -11,12 +13,21 @@
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
+import { ButtonAddToCart } from 'ds-component-foodz-up'
 
 @Component({
-  components: { }
+  components: { ButtonAddToCart }
 })
 export default class ProfileCovid extends Vue {
+  itemTest: number = 0
 
+  incrementItem () {
+    this.itemTest += 1
+  }
+
+  decrementItem () {
+    this.itemTest -= 1
+  }
 }
 </script>
 
